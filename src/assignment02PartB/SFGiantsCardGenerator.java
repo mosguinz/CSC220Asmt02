@@ -10,7 +10,7 @@
  * CSC 220 -  Data Structures
  * File Name: SFGiantsCardGenerator.java
  * @author: Duc Ta
- * @author: <First Name> <Last Name>
+ * @author: Kullathon Sitthisarnwattanachai
  * *****************************************************************
  */
 

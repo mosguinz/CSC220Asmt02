@@ -4,7 +4,7 @@
  * CSC 220 -  Data Structures
  * File Name: Person.java
  * Author: Duc Ta
- * Author: <First Name> <Last Name>
+ * Author: Kullathon Sitthisarnwattanachai
  * **********************************************
  */
 

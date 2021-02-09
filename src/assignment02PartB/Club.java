@@ -4,7 +4,7 @@
  * CSC 220 -  Data Structures
  * File Name: Club.java
  * @author: Duc Ta
- * @author: <First Name> <Last Name>
+ * @author: Kullathon Sitthisarnwattanachai
  * **********************************************
  */
 
