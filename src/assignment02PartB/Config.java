@@ -7,12 +7,12 @@
  * Author: Kullathon Sitthisarnwattanachai
  * **********************************************
  */
-
 package assignment02PartB;
 // Please organize all the given files in 1 same package
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
 
 public final class Config {
+
     //
     // Static Data Fields
     //
@@ -32,11 +32,22 @@ public final class Config {
     //
     // Instance Data Fields
     //
+    private Language lang;
+    private Timer timer;
+    private Color color;
+    private String logDirectoryPath;
+    private Directory logDirectory;
+    private String stdOutFilePath;
+    private String stdErrFilePath;
+    private StdOutStdErrTee stdOutStdErrTee;
+    private String clubName;
+    private Club club;
+    private String universityName;
+    private University university;
 
-
-	//
+    //
     public void setPreferences() {
-		//...	
+        //...
         this.displayInfo();
     }
 }
