@@ -13,6 +13,7 @@ package assignment02PartB;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.UncheckedIOException;
@@ -90,5 +91,13 @@ public class StdOutStdErrTee extends OutputStream {
     private void setPrintStreams() {
         System.setOut(new PrintStream(OUTPUT_STREAMS[0]));
         System.setErr(new PrintStream(OUTPUT_STREAMS[1]));
+    }
+
+    @Override
+    public void write(int b) throws IOException {
+        for (OutputStream out : OUTPUT_STREAMS) {
+            out.write(b);
+            out.flush();
+        }
     }
 }
