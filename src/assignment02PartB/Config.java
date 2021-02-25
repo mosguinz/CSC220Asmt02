@@ -53,6 +53,54 @@ public final class Config {
         return timer;
     }
 
+    public static Language getDefaultLang() {
+        return defaultLang;
+    }
+
+    public static Timer getDefaultTimer() {
+        return defaultTimer;
+    }
+
+    public static Color getDefaultColor() {
+        return defaultColor;
+    }
+
+    public static String getDefaultLogDirectoryPath() {
+        return defaultLogDirectoryPath;
+    }
+
+    public static Directory getDefaultLogDirectory() {
+        return defaultLogDirectory;
+    }
+
+    public static String getDefaultStdOutFilePath() {
+        return defaultStdOutFilePath;
+    }
+
+    public static String getDefaultStdErrFilePath() {
+        return defaultStdErrFilePath;
+    }
+
+    public static StdOutStdErrTee getDefaultStdOutStdErrTee() {
+        return defaultStdOutStdErrTee;
+    }
+
+    public static String getDefaultClubName() {
+        return defaultClubName;
+    }
+
+    public static Club getDefaultClub() {
+        return defaultClub;
+    }
+
+    public static String getDefaultUniversityName() {
+        return defaultUniversityName;
+    }
+
+    public static University getDefaultUniversity() {
+        return defaultUniversity;
+    }
+
     public Color getColor() {
         return color;
     }
