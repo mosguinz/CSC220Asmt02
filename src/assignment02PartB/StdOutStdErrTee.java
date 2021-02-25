@@ -14,6 +14,7 @@ package assignment02PartB;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.io.PrintStream;
 import java.io.UncheckedIOException;
 
 public class StdOutStdErrTee extends OutputStream {
@@ -23,6 +24,7 @@ public class StdOutStdErrTee extends OutputStream {
     public StdOutStdErrTee(String sOutPath, String sErrPath) {
         createStreams(sOutPath, sErrPath);
         OUTPUT_STREAMS = createStreams(sOutPath, sErrPath);
+        setPrintStreams();
     }
 
     /**
@@ -80,5 +82,13 @@ public class StdOutStdErrTee extends OutputStream {
         } catch (FileNotFoundException e) {
             throw new UncheckedIOException(e);
         }
+    }
+
+    /**
+     * Set the {@link PrintStream}s.
+     */
+    private void setPrintStreams() {
+        System.setOut(new PrintStream(OUTPUT_STREAMS[0]));
+        System.setErr(new PrintStream(OUTPUT_STREAMS[1]));
     }
 }
