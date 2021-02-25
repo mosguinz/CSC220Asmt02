@@ -41,7 +41,7 @@ public class StdOutStdErrTee extends OutputStream {
      * @return The array of {@link OutputStream}s.
      * @see #defaultStreams()
      */
-    private OutputStream[] createStreams(String sOutPath, String sErrPath) {
+    private static OutputStream[] createStreams(String sOutPath, String sErrPath) {
         try {
             return new OutputStream[]{
                 new FileOutputStream(sOutPath), new FileOutputStream(sErrPath)
