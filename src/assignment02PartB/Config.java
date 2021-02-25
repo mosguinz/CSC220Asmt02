@@ -45,6 +45,54 @@ public final class Config {
     private String universityName;
     private University university;
 
+    public Language getLang() {
+        return lang;
+    }
+
+    public Timer getTimer() {
+        return timer;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public String getLogDirectoryPath() {
+        return logDirectoryPath;
+    }
+
+    public Directory getLogDirectory() {
+        return logDirectory;
+    }
+
+    public String getStdOutFilePath() {
+        return stdOutFilePath;
+    }
+
+    public String getStdErrFilePath() {
+        return stdErrFilePath;
+    }
+
+    public StdOutStdErrTee getStdOutStdErrTee() {
+        return stdOutStdErrTee;
+    }
+
+    public String getClubName() {
+        return clubName;
+    }
+
+    public Club getClub() {
+        return club;
+    }
+
+    public String getUniversityName() {
+        return universityName;
+    }
+
+    public University getUniversity() {
+        return university;
+    }
+
     //
     public void setPreferences() {
         //...
