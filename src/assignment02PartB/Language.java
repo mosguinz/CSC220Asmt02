@@ -73,6 +73,10 @@ public class Language {
         return DEFAULT_LOCALE;
     }
 
+    public static String getOfficialSong() {
+        return officialSong;
+    }
+
     public ResourceBundle getBundle(String className) {
         return ResourceBundle.getBundle(className);
     }
