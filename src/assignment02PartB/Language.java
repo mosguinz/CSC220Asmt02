@@ -81,7 +81,17 @@ public class Language {
         return DEFAULT_LOCALE;
     }
 
-    public ResourceBundle getBundle(String className, Locale locale) {
+    /**
+     * Gets the {@link ResourceBundle} containing the strings for the specified {@code className}.
+     * <p>
+     * English strings will be used as a fallback if the strings for {@link #locale} cannot be
+     * found.
+     *
+     * @param className The name of the resource bundle, which must be a fully-qualified class name
+     *                  of this package.
+     * @return A resource bundle containing the strings for the specified class.
+     */
+    public ResourceBundle getBundle(String className) {
         return ResourceBundle.getBundle(LANGUAGE_PATH + '.' + className, locale);
     }
 
