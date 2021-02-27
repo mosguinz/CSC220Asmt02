@@ -52,7 +52,6 @@ public class Language {
         this.locale = findLocale(language);
     }
 
-
     public static String getOfficialGreeting() {
         return officialGreeting;
     }
