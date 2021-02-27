@@ -15,7 +15,7 @@ public final class Config {
 
     //
     // Static Data Fields
-    //
+    // @formatter:off
     private static final Language defaultLang = new Language("English"); // Default
     private static final Timer defaultTimer = new Timer("Pacific Standard Time"); // Default
     private static final Color defaultColor = new Color("ANSI"); // Default
@@ -28,6 +28,7 @@ public final class Config {
     private static final Club defaultClub = new Club();
     private static final String defaultUniversityName = "San Francisco State University"; // Default
     private static final University defaultUniversity = new University();
+    // @formatter:on
 
     //
     // Instance Data Fields
@@ -44,14 +45,6 @@ public final class Config {
     private Club club;
     private String universityName;
     private University university;
-
-    public Language getLang() {
-        return lang;
-    }
-
-    public Timer getTimer() {
-        return timer;
-    }
 
     public static Language getDefaultLang() {
         return defaultLang;
@@ -99,6 +92,14 @@ public final class Config {
 
     public static University getDefaultUniversity() {
         return defaultUniversity;
+    }
+
+    public Language getLang() {
+        return lang;
+    }
+
+    public Timer getTimer() {
+        return timer;
     }
 
     public Color getColor() {
