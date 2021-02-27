@@ -25,13 +25,11 @@ public class Language {
     private static final String officialGreeting = "Say Hey Willie";
     private static final String officialSong = "Take Me out to the Ball Game";
     private static final String officialAppName = "SF Giants Thank You";
-
     private static final String LANGUAGE_PATH = "assignment02PartB.resources.resources.i18n";
     private static final Locale DEFAULT_LOCALE = new Locale("en");
     private static final Locale[] SUPPORTED_LOCALES = {
             DEFAULT_LOCALE, new Locale("th"), new Locale("alien")
     };
-
     /**
      * The language to use for this instance.
      */
@@ -51,6 +49,14 @@ public class Language {
      */
     public Language(String language) {
         this.language = language;
+    }
+
+    public static String getOfficialGreeting() {
+        return officialGreeting;
+    }
+
+    public static String getOfficialSong() {
+        return officialSong;
     }
 
     /**
@@ -73,9 +79,6 @@ public class Language {
         return DEFAULT_LOCALE;
     }
 
-    public static String getOfficialSong() {
-        return officialSong;
-    }
 
     public ResourceBundle getBundle(String className) {
         return ResourceBundle.getBundle(className);
