@@ -7,9 +7,11 @@
  * @author: Kullathon Sitthisarnwattanachai
  * **********************************************
  */
+
 package assignment02PartB;
 
 // Please organize all the given files in 1 same package
+
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -27,7 +29,7 @@ public class Language {
     private static final String LANGUAGE_PATH = "assignment02PartB.resources.resources.i18n";
     private static final Locale DEFAULT_LOCALE = new Locale("en");
     private static final Locale[] SUPPORTED_LOCALES = {
-        DEFAULT_LOCALE, new Locale("th"), new Locale("alien")
+            DEFAULT_LOCALE, new Locale("th"), new Locale("alien")
     };
 
     /**
@@ -51,10 +53,6 @@ public class Language {
         this.language = language;
     }
 
-    public ResourceBundle getBundle(String className) {
-        return ResourceBundle.getBundle(className);
-    }
-
     /**
      * Gets a supported language from the input.
      * <p>
@@ -73,5 +71,9 @@ public class Language {
             }
         }
         return DEFAULT_LOCALE;
+    }
+
+    public ResourceBundle getBundle(String className) {
+        return ResourceBundle.getBundle(className);
     }
 }
