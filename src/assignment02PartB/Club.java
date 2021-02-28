@@ -16,7 +16,11 @@ import java.util.ResourceBundle;
 
 public class Club {
 
-    private static final ResourceBundle BUNDLE = Messenger.getConfig().getLang().getBundle("Club");
+    private static final ResourceBundle LANG_BUNDLE = Messenger.getConfig().getLang()
+            .getBundle("Club");
+    private static final ResourceBundle CLUB_BUNDLE = ResourceBundle
+            .getBundle("assignment02PartB.resources.Club");
+
     private String officialName;
     private String shortName;
     private String established;
@@ -70,19 +74,19 @@ public class Club {
 
     public void displayInfo() {
         String[] fields = {
-                BUNDLE.getString("officialName.label"),
-                BUNDLE.getString("shortName.label"),
-                BUNDLE.getString("established.label"),
-                BUNDLE.getString("colors.label"),
-                BUNDLE.getString("ballpark.label"),
-                BUNDLE.getString("numberOfWorldSeriesTitles.label"),
-                BUNDLE.getString("numberOfNlPennants.label"),
-                BUNDLE.getString("numberOfDivisionTitles.label"),
-                BUNDLE.getString("numberOfWildCardBerths.label"),
-                BUNDLE.getString("owners.label"),
-                BUNDLE.getString("president.label"),
-                BUNDLE.getString("generalManager.label"),
-                BUNDLE.getString("manager.label")
+                LANG_BUNDLE.getString("officialName.label"),
+                LANG_BUNDLE.getString("shortName.label"),
+                LANG_BUNDLE.getString("established.label"),
+                LANG_BUNDLE.getString("colors.label"),
+                LANG_BUNDLE.getString("ballpark.label"),
+                LANG_BUNDLE.getString("numberOfWorldSeriesTitles.label"),
+                LANG_BUNDLE.getString("numberOfNlPennants.label"),
+                LANG_BUNDLE.getString("numberOfDivisionTitles.label"),
+                LANG_BUNDLE.getString("numberOfWildCardBerths.label"),
+                LANG_BUNDLE.getString("owners.label"),
+                LANG_BUNDLE.getString("president.label"),
+                LANG_BUNDLE.getString("generalManager.label"),
+                LANG_BUNDLE.getString("manager.label")
         };
         String[] values = {
                 officialName,
