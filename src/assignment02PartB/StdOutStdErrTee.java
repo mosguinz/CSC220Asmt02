@@ -39,20 +39,22 @@ public class StdOutStdErrTee extends OutputStream {
      * under {@link Config#defaultStdOutFilePath} and {@link Config#defaultStdErrFilePath},
      * respectively.
      *
-     * @param sOutPath The filename under which to write the {@link java.lang.System#out} stream to.
-     * @param sErrPath The filename under which to write the {@link java.lang.System#err} stream to.
+     * @param sOutPath The filename under which to write the {@link java.lang.System#out} stream
+     *                 to.
+     * @param sErrPath The filename under which to write the {@link java.lang.System#err} stream
+     *                 to.
      * @return The array of {@link OutputStream}s.
      * @see #defaultStreams()
      */
     private static OutputStream[] createStreams(String sOutPath, String sErrPath) {
         try {
             return new OutputStream[]{
-                new FileOutputStream(sOutPath), new FileOutputStream(sErrPath)
+                    new FileOutputStream(sOutPath), new FileOutputStream(sErrPath)
             };
         } catch (FileNotFoundException e) {
             System.err.printf(
                     "Could not create file output streams at '{}' and '{}'. Reason: {}\n"
-                    + "Creating file output streams at default location instead...",
+                            + "Creating file output streams at default location instead...",
                     sOutPath, sErrPath, e.getMessage()
             );
             return defaultStreams();
@@ -77,8 +79,8 @@ public class StdOutStdErrTee extends OutputStream {
     private static OutputStream[] defaultStreams() throws UncheckedIOException {
         try {
             return new OutputStream[]{
-                new FileOutputStream(Config.getDefaultStdOutFilePath()),
-                new FileOutputStream(Config.getDefaultStdErrFilePath())
+                    new FileOutputStream(Config.getDefaultStdOutFilePath()),
+                    new FileOutputStream(Config.getDefaultStdErrFilePath())
             };
         } catch (FileNotFoundException e) {
             throw new UncheckedIOException(e);
@@ -86,9 +88,16 @@ public class StdOutStdErrTee extends OutputStream {
     }
 
     /**
-     * Set the {@link PrintStream}s.
+     * Does not do anything. Required to compile project.
      */
-    private void setPrintStreams() {
+    @Deprecated
+    public static void stopLog() {
+    }
+
+    /**
+     * Sets the {@link PrintStream}s to start logging.
+     */
+    public void startLog() {
         System.setOut(new PrintStream(OUTPUT_STREAMS[0]));
         System.setErr(new PrintStream(OUTPUT_STREAMS[1]));
     }
