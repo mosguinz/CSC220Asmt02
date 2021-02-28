@@ -39,6 +39,19 @@ public class Club {
     // Constructors
     //
     public Club() {
+        officialName = LANG_BUNDLE.getString("officialName.label");
+        shortName = LANG_BUNDLE.getString("shortName.label");
+        established = LANG_BUNDLE.getString("established.label");
+        colors = LANG_BUNDLE.getString("colors.label").split(",");
+        ballpark = LANG_BUNDLE.getString("ballpark.label");
+        numberOfWorldSeriesTitles = LANG_BUNDLE.getString("numberOfWorldSeriesTitles.label");
+        numberOfNlPennants = LANG_BUNDLE.getString("numberOfNlPennants.label");
+        numberOfDivisionTitles = LANG_BUNDLE.getString("numberOfDivisionTitles.label");
+        numberOfWildCardBerths = LANG_BUNDLE.getString("numberOfWildCardBerths.label");
+        owners = LANG_BUNDLE.getString("owners.label").split(",");
+        president = LANG_BUNDLE.getString("president.label");
+        generalManager = LANG_BUNDLE.getString("generalManager.label");
+        manager = LANG_BUNDLE.getString("manager.label");
     }
 
     public Club(String officialName) {
