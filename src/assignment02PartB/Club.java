@@ -7,7 +7,6 @@
  * @author: Kullathon Sitthisarnwattanachai
  * **********************************************
  */
-
 package assignment02PartB;
 // Please organize all the given files in 1 same package
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
@@ -16,10 +15,10 @@ import java.util.ResourceBundle;
 
 public class Club {
 
-    private static final ResourceBundle LANG_BUNDLE = Messenger.getConfig().getLang()
+    private static final ResourceBundle LANG_BUNDLE = new Language("en")
             .getBundle("Club");
     private static final ResourceBundle CLUB_BUNDLE = ResourceBundle
-            .getBundle("assignment02PartB.resources.Club");
+            .getBundle("assignment02PartB.resources.ClubInfo");
 
     private String officialName;
     private String shortName;
@@ -39,19 +38,19 @@ public class Club {
     // Constructors
     //
     public Club() {
-        officialName = LANG_BUNDLE.getString("officialName.label");
-        shortName = LANG_BUNDLE.getString("shortName.label");
-        established = LANG_BUNDLE.getString("established.label");
-        colors = LANG_BUNDLE.getString("colors.label").split(",");
-        ballpark = LANG_BUNDLE.getString("ballpark.label");
-        numberOfWorldSeriesTitles = LANG_BUNDLE.getString("numberOfWorldSeriesTitles.label");
-        numberOfNlPennants = LANG_BUNDLE.getString("numberOfNlPennants.label");
-        numberOfDivisionTitles = LANG_BUNDLE.getString("numberOfDivisionTitles.label");
-        numberOfWildCardBerths = LANG_BUNDLE.getString("numberOfWildCardBerths.label");
-        owners = LANG_BUNDLE.getString("owners.label").split(",");
-        president = new President(LANG_BUNDLE.getString("president.label"), this);
-        generalManager = new GeneralManager(LANG_BUNDLE.getString("generalManager.label"), this);
-        manager = new Manager(LANG_BUNDLE.getString("manager.label"), this);
+        officialName = CLUB_BUNDLE.getString("officialName");
+        shortName = CLUB_BUNDLE.getString("shortName");
+        established = CLUB_BUNDLE.getString("established");
+        colors = CLUB_BUNDLE.getString("colors").split(",");
+        ballpark = CLUB_BUNDLE.getString("ballpark");
+        numberOfWorldSeriesTitles = CLUB_BUNDLE.getString("numberOfWorldSeriesTitles");
+        numberOfNlPennants = CLUB_BUNDLE.getString("numberOfNlPennants");
+        numberOfDivisionTitles = CLUB_BUNDLE.getString("numberOfDivisionTitles");
+        numberOfWildCardBerths = CLUB_BUNDLE.getString("numberOfWildCardBerths");
+        owners = CLUB_BUNDLE.getString("owners").split(",");
+        president = new President(CLUB_BUNDLE.getString("president"), this);
+        generalManager = new GeneralManager(CLUB_BUNDLE.getString("generalManager"), this);
+        manager = new Manager(CLUB_BUNDLE.getString("manager"), this);
     }
 
     public Club(String officialName) {
