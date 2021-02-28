@@ -18,6 +18,13 @@ public final class ChatSession {
      */
     private static final int LINE_SEP_WIDTH = 66;
     private static final String LINE_SEP = "-".repeat(LINE_SEP_WIDTH);
+    private final Club club;
+    private final University university;
+
+    public ChatSession(Club club, University university) {
+        this.club = club;
+        this.university = university;
+    }
 
     public static String getLineSep() {
         return LINE_SEP;
