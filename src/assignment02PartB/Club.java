@@ -12,8 +12,11 @@ package assignment02PartB;
 // Please organize all the given files in 1 same package
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
 
+import java.util.ResourceBundle;
+
 public class Club {
 
+    private static final ResourceBundle BUNDLE = Messenger.getConfig().getLang().getBundle("Club");
     private String officialName;
     private String shortName;
     private String established;
