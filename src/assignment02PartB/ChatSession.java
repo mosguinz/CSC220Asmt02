@@ -20,7 +20,7 @@ public final class ChatSession {
      */
     private static final int LINE_SEP_WIDTH = 66;
     private static final String LINE_SEP = "-".repeat(LINE_SEP_WIDTH);
-    private static final Scanner scan = Scanner(System.in);
+    private static final Scanner scan = new Scanner(System.in);
     private final Club club;
     private final University university;
 
@@ -34,11 +34,12 @@ public final class ChatSession {
     }
 
     /**
-     * Prints the given provided {@code fields} and {@values} in a table-like format.
+     * Prints the given provided {@code fields} and {
+     *
+     * @values} in a table-like format.
      * <p>
      * Each field and value are printed in pairs on each line, the format of which is specified in
-     * the sample output. See the example below.
-     * <pre>{@code
+     * the sample output. See the example below.      <pre>{@code
      * Language:                 English
      * Time Zone:                Pacific Standard Time
      * Color:                    ANSI
