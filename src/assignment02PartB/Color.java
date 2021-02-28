@@ -44,6 +44,16 @@ public class Color {
         this.encoding = encoding;
     }
 
+    /**
+     * Generates a highlighted string in SF State theme color.
+     *
+     * @param s The string to highlight.
+     * @return The highlighted string in the format specified in the sample output.
+     */
+    public static String sfsuHighlight(String s) {
+        return ANSI_PURPLE_BACKGROUND + ANSI_YELLOW + s + ANSI_RESET;
+    }
+
     public String getEncoding() {
         return encoding;
     }
