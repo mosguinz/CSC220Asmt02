@@ -14,6 +14,20 @@ package assignment02PartB;
 
 public class Club {
 
+    private String officialName;
+    private String shortName;
+    private String established;
+    private String[] colors;
+    private String ballpark;
+    private int numberOfWorldSeriesTitles;
+    private int numberOfNlPennants;
+    private int numberOfDivisionTitles;
+    private int numberOfWildCardBerths;
+    private String[] owners;
+    private President president;
+    private GeneralManager generalManager;
+    private Manager manager;
+
     //
     // Constructors
     //
@@ -23,7 +37,32 @@ public class Club {
     public Club(String officialName) {
     }
 
-    public Club(int yearEstablished, String[] owners, String[] colors, String officialName, String shortName,
+    public Club(String officialName, String shortName, String established, String[] colors,
+            String ballpark, int numberOfWorldSeriesTitles, int numberOfNlPennants,
+            int numberOfDivisionTitles, int numberOfWildCardBerths, String[] owners,
+            President president, GeneralManager generalManager, Manager manager) {
+        this.officialName = officialName;
+        this.shortName = shortName;
+        this.established = established;
+        this.colors = colors;
+        this.ballpark = ballpark;
+        this.numberOfWorldSeriesTitles = numberOfWorldSeriesTitles;
+        this.numberOfNlPennants = numberOfNlPennants;
+        this.numberOfDivisionTitles = numberOfDivisionTitles;
+        this.numberOfWildCardBerths = numberOfWildCardBerths;
+        this.owners = owners;
+        this.president = president;
+        this.generalManager = generalManager;
+        this.manager = manager;
+    }
+
+    /**
+     * Unused constructor from starter code. The provided constructor was broken and have since
+     * fixed to ensure a successful compilation.
+     */
+    @Deprecated
+    public Club(int yearEstablished, String[] owners, String[] colors, String officialName,
+            String shortName) {
     }
 
 }

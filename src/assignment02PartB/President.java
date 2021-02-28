@@ -18,4 +18,9 @@ public class President extends FrontOffice {
     // Instance Data Fields
     //
     private String position;
+
+    @Override
+    public String displayInfo() {
+        return toString();
+    }
 }
