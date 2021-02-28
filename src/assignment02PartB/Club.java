@@ -50,7 +50,7 @@ public class Club {
         numberOfWildCardBerths = LANG_BUNDLE.getString("numberOfWildCardBerths.label");
         owners = LANG_BUNDLE.getString("owners.label").split(",");
         president = new President(LANG_BUNDLE.getString("president.label"), this);
-        generalManager = LANG_BUNDLE.getString("generalManager.label");
+        generalManager = new GeneralManager(LANG_BUNDLE.getString("generalManager.label"), this);
         manager = LANG_BUNDLE.getString("manager.label");
     }
 

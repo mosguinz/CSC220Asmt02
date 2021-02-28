@@ -19,6 +19,10 @@ public class GeneralManager extends FrontOffice {
     //
     private String position;
 
+    public GeneralManager(String fullName, Club club) {
+        super(fullName.split("\\s")[0], fullName.split("\\s")[1], club);
+    }
+
     @Override
     public String displayInfo() {
         return toString();
