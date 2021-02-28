@@ -51,7 +51,7 @@ public class Club {
         owners = LANG_BUNDLE.getString("owners.label").split(",");
         president = new President(LANG_BUNDLE.getString("president.label"), this);
         generalManager = new GeneralManager(LANG_BUNDLE.getString("generalManager.label"), this);
-        manager = LANG_BUNDLE.getString("manager.label");
+        manager = new Manager(LANG_BUNDLE.getString("manager.label"), this);
     }
 
     public Club(String officialName) {
