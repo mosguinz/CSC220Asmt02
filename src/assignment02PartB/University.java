@@ -13,4 +13,12 @@ package assignment02PartB;
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
 
 public class University {
+
+    private static final String DEFAULT_NAME = "San Francisco State University";
+
+    private final String name;
+
+    public University() {
+        this.name = DEFAULT_NAME;
+    }
 }
