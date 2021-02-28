@@ -22,10 +22,10 @@ public class Club {
     private String established;
     private String[] colors;
     private String ballpark;
-    private int numberOfWorldSeriesTitles;
-    private int numberOfNlPennants;
-    private int numberOfDivisionTitles;
-    private int numberOfWildCardBerths;
+    private String numberOfWorldSeriesTitles;
+    private String numberOfNlPennants;
+    private String numberOfDivisionTitles;
+    private String numberOfWildCardBerths;
     private String[] owners;
     private President president;
     private GeneralManager generalManager;
