@@ -49,7 +49,7 @@ public class Club {
         numberOfDivisionTitles = LANG_BUNDLE.getString("numberOfDivisionTitles.label");
         numberOfWildCardBerths = LANG_BUNDLE.getString("numberOfWildCardBerths.label");
         owners = LANG_BUNDLE.getString("owners.label").split(",");
-        president = LANG_BUNDLE.getString("president.label");
+        president = new President(LANG_BUNDLE.getString("president.label"), this);
         generalManager = LANG_BUNDLE.getString("generalManager.label");
         manager = LANG_BUNDLE.getString("manager.label");
     }
