@@ -52,6 +52,11 @@ public final class Config {
         ChatSession.displayAppBanner();
     }
 
+    public static void main(String[] args) {
+        Config c = new Config();
+        c.setPreferences();
+    }
+
     public static Language getDefaultLang() {
         return defaultLang;
     }
@@ -174,7 +179,14 @@ public final class Config {
     }
 
     public void setPreferences() {
-        //...
+        lang = new Language(ChatSession.promptString("Language"));
+        timer = new Timer(ChatSession.promptString("Time Zone"));
+        color = defaultColor;
+        stdOutFilePath = defaultStdOutFilePath;
+        stdErrFilePath = defaultStdErrFilePath;
+        //receipt
+        clubName = defaultClubName;
+        universityName = defaultUniversityName;
         this.displayInfo();
     }
 }
