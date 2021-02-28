@@ -18,7 +18,9 @@ import java.util.TimeZone;
 
 public class Timer {
 
+    // @formatter:off
     private static final String defaultTimeZone = "Pacific Standard Time";
+    // @formatter:on
 
     private static final TimeZone DEFAULT_TZ = TimeZone.getTimeZone("America/Los_Angeles");
     private final TimeZone timeZoneObject;
