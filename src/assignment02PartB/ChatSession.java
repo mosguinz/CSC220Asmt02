@@ -63,6 +63,18 @@ public final class ChatSession {
         System.out.println(LINE_SEP);
     }
 
+    private void startChatSession() {
+    }
+
+    private void connectChatters() {
+    }
+
+    private void runQuiz() {
+    }
+
+    private void stopChatSession() {
+    }
+
     public void runChatSession() {
         this.startChatSession();
         this.connectChatters();
