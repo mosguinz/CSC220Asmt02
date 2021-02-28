@@ -13,13 +13,12 @@ package assignment02PartB;
 
 public class Color {
 
-    //
-    // Static Data Fields
-    //
+    // @formatter:off
     public static final String defaultPreference = "ANSI"; // default
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
+    // @formatter:on
 
     //
     // Instance Data Fields
@@ -30,8 +29,7 @@ public class Color {
     public final String encoding;
 
     /**
-     * Initialize {@link Color} with {@link #defaultPreference} as the character
-     * encoding.
+     * Initialize {@link Color} with {@link #defaultPreference} as the character encoding.
      */
     public Color() {
         this.encoding = defaultPreference;
