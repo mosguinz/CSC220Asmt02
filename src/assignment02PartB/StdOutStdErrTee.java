@@ -7,16 +7,10 @@
  * Author: Kullathon Sitthisarnwattanachai
  * **********************************************
  */
+
 package assignment02PartB;
 // Please organize all the given files in 1 same package
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.io.UncheckedIOException;
 
 public class StdOutStdErrTee extends OutputStream {
 
