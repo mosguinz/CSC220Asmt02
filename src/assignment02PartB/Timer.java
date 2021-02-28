@@ -18,7 +18,9 @@ import java.util.TimeZone;
 
 public class Timer {
 
+    // @formatter:off
     private static final String defaultTimeZone = "Pacific Standard Time";
+    // @formatter:on
 
     private static final TimeZone DEFAULT_TZ = TimeZone.getTimeZone("America/Los_Angeles");
     private final TimeZone timeZoneObject;
@@ -83,11 +85,11 @@ public class Timer {
     }
 
     /**
-     * Generates a timestamp in the format specified in the sample output.
+     * Generates a timestamp.
      * <p>
      * For example, "2021/02/27 06:23:15 [0726 ms] PM PST".
      *
-     * @return The timestamp in question.
+     * @return The timestamp in question in the format specified in the sample output.
      */
     public String getChatTimestamp() {
         DateFormat df = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss [SSSS 'ms'] a z");
