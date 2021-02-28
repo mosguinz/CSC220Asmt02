@@ -85,11 +85,11 @@ public class Timer {
     }
 
     /**
-     * Generates a timestamp in the format specified in the sample output.
+     * Generates a timestamp.
      * <p>
      * For example, "2021/02/27 06:23:15 [0726 ms] PM PST".
      *
-     * @return The timestamp in question.
+     * @return The timestamp in question in the format specified in the sample output.
      */
     public String getChatTimestamp() {
         DateFormat df = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss [SSSS 'ms'] a z");
