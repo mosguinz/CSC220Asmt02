@@ -19,8 +19,8 @@ public class Manager extends FrontOffice {
     //
     private String position;
 
-    public Manager(String fullName, Club club) {
-        super(fullName.split("\\s")[0], fullName.split("\\s")[1], club);
+    public Manager(String firstName, String lastName, Club club) {
+        super(firstName, lastName, club);
     }
 
     @Override

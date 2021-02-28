@@ -19,8 +19,8 @@ public class President extends FrontOffice {
     //
     private String position;
 
-    public President(String fullName, Club club) {
-        super(fullName.split("\\s")[0], fullName.split("\\s")[1], club);
+    public President(String firstName, String lastName, Club club) {
+        super(firstName, lastName, club);
     }
 
     @Override
