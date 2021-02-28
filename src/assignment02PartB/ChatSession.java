@@ -29,13 +29,20 @@ public final class ChatSession {
         this.university = university;
     }
 
-    public static String lineSep() {
-        return LINE_SEP;
+    /**
+     * Prints a line.
+     */
+    public static void printLineSep() {
+        System.out.println(LINE_SEP);
     }
 
     /**
      * Prints the given provided {@code fields} and {
      *
+     * @param fields The array of strings as fields. The size of the array must be equal to those of
+     *               {@code values}.
+     * @param values The array of strings as values. The size of the array must be equal to those of
+     *               {@code fields}.
      * @values} in a table-like format.
      * <p>
      * Each field and value are printed in pairs on each line, the format of which is specified in
@@ -46,11 +53,6 @@ public final class ChatSession {
      * Standard Output Log:      ./src/assignment02PartB/log/StandardOut.log
      * Default club:             SF Giants
      * }</pre>
-     *
-     * @param fields The array of strings as fields. The size of the array must be equal to those of
-     *               {@code values}.
-     * @param values The array of strings as values. The size of the array must be equal to those of
-     *               {@code fields}.
      */
     public static void printTable(String[] fields, String[] values) {
         for (int i = 0; i < fields.length; i++) {
