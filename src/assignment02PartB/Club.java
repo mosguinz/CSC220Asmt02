@@ -68,4 +68,37 @@ public class Club {
             String shortName) {
     }
 
+    public void displayInfo() {
+        String[] fields = {
+                BUNDLE.getString("officialName.label"),
+                BUNDLE.getString("shortName.label"),
+                BUNDLE.getString("established.label"),
+                BUNDLE.getString("colors.label"),
+                BUNDLE.getString("ballpark.label"),
+                BUNDLE.getString("numberOfWorldSeriesTitles.label"),
+                BUNDLE.getString("numberOfNlPennants.label"),
+                BUNDLE.getString("numberOfDivisionTitles.label"),
+                BUNDLE.getString("numberOfWildCardBerths.label"),
+                BUNDLE.getString("owners.label"),
+                BUNDLE.getString("president.label"),
+                BUNDLE.getString("generalManager.label"),
+                BUNDLE.getString("manager.label")
+        };
+        String[] values = {
+                officialName,
+                shortName,
+                established,
+                String.join(", ", colors),
+                ballpark,
+                numberOfWorldSeriesTitles,
+                numberOfNlPennants,
+                numberOfDivisionTitles,
+                numberOfWildCardBerths,
+                String.valueOf(owners),
+                String.valueOf(president),
+                String.valueOf(generalManager),
+                String.valueOf(manager)
+        };
+        ChatSession.printTable(fields, values);
+    }
 }
