@@ -31,6 +31,7 @@ public class Language {
     };
     private final String language;
     private final Locale locale;
+
     /**
      * Initialize {@link Language} with {@link #defaultPreference} as the language.
      */
@@ -79,6 +80,14 @@ public class Language {
             }
         }
         return DEFAULT_LOCALE;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public Locale getLocale() {
+        return locale;
     }
 
     /**
