@@ -11,6 +11,9 @@ package assignment02PartB;
 // Please organize all the given files in 1 same package
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.TimeZone;
 
 public class Timer {
@@ -77,5 +80,18 @@ public class Timer {
             }
         }
         return DEFAULT_TZ;
+    }
+
+    /**
+     * Generates a timestamp in the format specified in the sample output.
+     * <p>
+     * For example, "2021/02/27 06:23:15 [0726 ms] PM PST".
+     *
+     * @return The timestamp in question.
+     */
+    public String getChatTimestamp() {
+        DateFormat df = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss [SSSS 'ms'] a z");
+        df.setTimeZone(timeZoneObject);
+        return df.format(new Date());
     }
 }
