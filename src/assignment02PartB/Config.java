@@ -142,7 +142,16 @@ public final class Config {
         return university;
     }
 
-    //
+    private void displayInfo() {
+        System.out.println(lang);
+        System.out.println(timer.getTimeZoneName());
+        System.out.println(color.getEncoding());
+        System.out.println(stdOutFilePath);
+        System.out.println(stdErrFilePath);
+        System.out.println("[receipt log]");
+        System.out.println("[club/uni]");
+    }
+
     public void setPreferences() {
         //...
         this.displayInfo();
