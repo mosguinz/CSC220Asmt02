@@ -25,6 +25,15 @@ public final class ChatSession {
         return LINE_SEP;
     }
 
+    /**
+     * Print the app banner as specified in the sample output.
+     */
+    private void printAppBanner() {
+        System.out.println(LINE_SEP);
+        System.out.println("-".repeat(19) + Language.getOfficialAppName() + "-".repeat(26));
+        System.out.println(LINE_SEP);
+    }
+
     public void runChatSession() {
         this.startChatSession();
         this.connectChatters();
