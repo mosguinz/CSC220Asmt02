@@ -9,6 +9,8 @@
  */
 package assignment02PartB;
 
+import java.util.Scanner;
+
 // Please organize all the given files in 1 same package
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
 public final class ChatSession {
@@ -18,6 +20,7 @@ public final class ChatSession {
      */
     private static final int LINE_SEP_WIDTH = 66;
     private static final String LINE_SEP = "-".repeat(LINE_SEP_WIDTH);
+    private static final Scanner scan = Scanner(System.in);
     private final Club club;
     private final University university;
 
@@ -61,6 +64,17 @@ public final class ChatSession {
         System.out.println(LINE_SEP);
         System.out.println("-".repeat(19) + Language.getOfficialAppName() + "-".repeat(26));
         System.out.println(LINE_SEP);
+    }
+
+    /**
+     * Prompts the user for an input. Strips all leading and trailing whitespaces.
+     *
+     * @param prompt The prompt to appear, preceded by a colon.
+     * @return The string from stdin.
+     */
+    public static String promptString(String prompt) {
+        System.out.print(prompt + ": ");
+        return scan.nextLine().strip();
     }
 
     private void startChatSession() {
