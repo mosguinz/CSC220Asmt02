@@ -24,16 +24,13 @@ public class Language {
     private static final String officialGreeting = "Say Hey Willie";
     private static final String officialSong = "Take Me out to the Ball Game";
     private static final String officialAppName = "SF Giants Thank You";
-
     private static final String LANGUAGE_PATH = "assignment02PartB.resources.i18n";
     private static final Locale DEFAULT_LOCALE = new Locale("en");
     private static final Locale[] SUPPORTED_LOCALES = {
             DEFAULT_LOCALE, new Locale("th"), new Locale("alien")
     };
-
     private final String language;
     private final Locale locale;
-
     /**
      * Initialize {@link Language} with {@link #defaultPreference} as the language.
      */
@@ -50,6 +47,10 @@ public class Language {
     public Language(String language) {
         this.language = language;
         this.locale = findLocale(language);
+    }
+
+    public static String getOfficialAppName() {
+        return officialAppName;
     }
 
     public static String getOfficialGreeting() {
