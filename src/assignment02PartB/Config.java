@@ -48,6 +48,10 @@ public final class Config {
     private String universityName;
     private University university;
 
+    public Config() {
+        ChatSession.displayAppBanner();
+    }
+
     public static Language getDefaultLang() {
         return defaultLang;
     }
