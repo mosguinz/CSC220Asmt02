@@ -43,4 +43,8 @@ public class Color {
     public Color(String encoding) {
         this.encoding = encoding;
     }
+
+    public String getEncoding() {
+        return encoding;
+    }
 }
