@@ -82,6 +82,8 @@ public final class ChatSession {
     }
 
     private void startChatSession() {
+        String ts = Messenger.getConfig().getTimer().getChatTimestamp();
+        System.out.printf("%s - Chat session started.%n%n", ts);
     }
 
     private void connectChatters() {
