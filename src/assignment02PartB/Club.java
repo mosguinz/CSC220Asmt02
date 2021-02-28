@@ -67,8 +67,11 @@ public class Club {
     }
 
     /**
-     * Unused constructor from starter code. The provided constructor was broken and have since
-     * fixed to ensure a successful compilation.
+     * Unused constructor from starter code.
+     *
+     * @deprecated The provided constructor was broken and have edited in order to allow
+     *         compilation. Preserved in accordance with the requirements listed in the assignment
+     *         specification.
      */
     @Deprecated
     public Club(int yearEstablished, String[] owners, String[] colors, String officialName,
