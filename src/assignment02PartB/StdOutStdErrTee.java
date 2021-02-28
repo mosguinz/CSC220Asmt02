@@ -35,7 +35,7 @@ public class StdOutStdErrTee extends OutputStream {
      * <p>
      * If the file exists but is a directory rather than a regular file, does not exist but cannot
      * be created, or cannot be opened for any other reason then the stream outputs will be stored
-     * under {@link Config#defaultStdOutFilePath} and {@link Config#defaultStdErrFilePath},
+     * under {@link Config#getDefaultStdOutFilePath()} and {@link Config#getDefaultStdErrFilePath()},
      * respectively.
      *
      * @param sOutPath The filename under which to write the {@link java.lang.System#out} stream
@@ -71,8 +71,8 @@ public class StdOutStdErrTee extends OutputStream {
      *
      * @return The array of {@link OutputStream}s.
      * @throws UncheckedIOException If an I/O error occurs; see above for more information.
-     * @see Config#defaultStdOutFilePath
-     * @see Config#defaultStdErrFilePath
+     * @see Config#getDefaultStdOutFilePath()
+     * @see Config#getDefaultStdErrFilePath()
      * @see #createStreams(java.lang.String, java.lang.String)
      */
     private static OutputStream[] defaultStreams() throws UncheckedIOException {
