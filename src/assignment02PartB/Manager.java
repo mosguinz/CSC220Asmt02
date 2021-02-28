@@ -14,16 +14,24 @@ package assignment02PartB;
 
 public class Manager extends FrontOffice {
 
-    //
-    // Instance Data Fields
-    //
+    /**
+     * Unused field. Preserved in accordance with the requirements listed in the assignment
+     * specification.
+     */
     private String position;
 
     public Manager(String firstName, String lastName, Club club) {
         super(firstName, lastName, club);
     }
 
+    /**
+     * Unused method.
+     *
+     * @deprecated Implemented in order to allow compilation. Presumably, this method would be used
+     *         to return the manager's name alongside their position.
+     */
     @Override
+    @Deprecated
     public String displayInfo() {
         return toString();
     }
