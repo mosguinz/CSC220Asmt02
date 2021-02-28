@@ -34,9 +34,10 @@ public class Club {
     private GeneralManager generalManager;
     private Manager manager;
 
-    //
-    // Constructors
-    //
+    /**
+     * Sole constructor to instantiate a {@link Club}. Club information are from the {@link
+     * #CLUB_BUNDLE} resource bundle.
+     */
     public Club() {
         officialName = CLUB_BUNDLE.getString("officialName");
         shortName = CLUB_BUNDLE.getString("shortName");
@@ -48,31 +49,21 @@ public class Club {
         numberOfDivisionTitles = CLUB_BUNDLE.getString("numberOfDivisionTitles");
         numberOfWildCardBerths = CLUB_BUNDLE.getString("numberOfWildCardBerths");
         owners = CLUB_BUNDLE.getString("owners").split(",");
-        president = new President(CLUB_BUNDLE.getString("president"), this);
-        generalManager = new GeneralManager(CLUB_BUNDLE.getString("generalManager"), this);
-        manager = new Manager(CLUB_BUNDLE.getString("manager"), this);
-    }
-
-    public Club(String officialName) {
-    }
-
-    public Club(String officialName, String shortName, String established, String[] colors,
-            String ballpark, String numberOfWorldSeriesTitles, String numberOfNlPennants,
-            String numberOfDivisionTitles, String numberOfWildCardBerths, String[] owners,
-            President president, GeneralManager generalManager, Manager manager) {
-        this.officialName = officialName;
-        this.shortName = shortName;
-        this.established = established;
-        this.colors = colors;
-        this.ballpark = ballpark;
-        this.numberOfWorldSeriesTitles = numberOfWorldSeriesTitles;
-        this.numberOfNlPennants = numberOfNlPennants;
-        this.numberOfDivisionTitles = numberOfDivisionTitles;
-        this.numberOfWildCardBerths = numberOfWildCardBerths;
-        this.owners = owners;
-        this.president = president;
-        this.generalManager = generalManager;
-        this.manager = manager;
+        president = new President(
+                CLUB_BUNDLE.getString("president.firstName"),
+                CLUB_BUNDLE.getString("president.lastName"),
+                this
+        );
+        generalManager = new GeneralManager(
+                CLUB_BUNDLE.getString("generalManager.firstName"),
+                CLUB_BUNDLE.getString("generalManager.lastName"),
+                this
+        );
+        manager = new Manager(
+                CLUB_BUNDLE.getString("manager.firstName"),
+                CLUB_BUNDLE.getString("manager.lastName"),
+                this
+        );
     }
 
     /**
