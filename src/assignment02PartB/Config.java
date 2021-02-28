@@ -11,6 +11,8 @@ package assignment02PartB;
 // Please organize all the given files in 1 same package
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
 
+import java.util.ResourceBundle;
+
 public final class Config {
 
     //
@@ -143,13 +145,28 @@ public final class Config {
     }
 
     private void displayInfo() {
-        System.out.println(lang);
-        System.out.println(timer.getTimeZoneName());
-        System.out.println(color.getEncoding());
-        System.out.println(stdOutFilePath);
-        System.out.println(stdErrFilePath);
-        System.out.println("[receipt log]");
-        System.out.println("[club/uni]");
+        ResourceBundle bundle = lang.getBundle("Config");
+        String[] labels = {
+                bundle.getString("language.label"),
+                bundle.getString("timeZone.label"),
+                bundle.getString("color.label"),
+                bundle.getString("stdOutLogPath.label"),
+                bundle.getString("stdErrLogPath.label"),
+                bundle.getString("receiptLogPath.label"),
+                bundle.getString("defaultClub.label"),
+                bundle.getString("defaultUniversity.label")
+        };
+        String[] values = {
+                lang.getLanguage(),
+                timer.getTimeZoneName(),
+                color.getEncoding(),
+                stdOutFilePath,
+                stdErrFilePath,
+                "",
+                defaultClubName,
+                defaultUniversityName
+        };
+        ChatSession.printTable(labels, values);
     }
 
     public void setPreferences() {
