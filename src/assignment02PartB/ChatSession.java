@@ -26,7 +26,7 @@ public final class ChatSession {
         this.university = university;
     }
 
-    public static String getLineSep() {
+    public static String lineSep() {
         return LINE_SEP;
     }
 
@@ -57,7 +57,7 @@ public final class ChatSession {
     /**
      * Print the app banner as specified in the sample output.
      */
-    private void printAppBanner() {
+    public void displayAppBanner() {
         System.out.println(LINE_SEP);
         System.out.println("-".repeat(19) + Language.getOfficialAppName() + "-".repeat(26));
         System.out.println(LINE_SEP);
