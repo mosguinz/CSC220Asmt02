@@ -41,8 +41,8 @@ public class Club {
     }
 
     public Club(String officialName, String shortName, String established, String[] colors,
-            String ballpark, int numberOfWorldSeriesTitles, int numberOfNlPennants,
-            int numberOfDivisionTitles, int numberOfWildCardBerths, String[] owners,
+            String ballpark, String numberOfWorldSeriesTitles, String numberOfNlPennants,
+            String numberOfDivisionTitles, String numberOfWildCardBerths, String[] owners,
             President president, GeneralManager generalManager, Manager manager) {
         this.officialName = officialName;
         this.shortName = shortName;
