@@ -105,9 +105,9 @@ public class Club {
                 numberOfDivisionTitles,
                 numberOfWildCardBerths,
                 String.join(", ", owners),
-                president.displayInfo(),
-                generalManager.displayInfo(),
-                manager.displayInfo()
+                president.toString(),
+                generalManager.toString(),
+                manager.toString()
         };
         ChatSession.printTable(fields, values);
     }
