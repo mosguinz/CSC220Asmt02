@@ -14,6 +14,11 @@ package assignment02PartB;
 
 public final class ChatSession {
 
+    /**
+     * The width of the line separator as specified in the sample output.
+     */
+    private static final int LINE_SEP_WIDTH = 66;
+
     public void runChatSession() {
         this.startChatSession();
         this.connectChatters();
