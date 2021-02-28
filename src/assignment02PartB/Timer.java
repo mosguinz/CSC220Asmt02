@@ -40,6 +40,10 @@ public class Timer {
         this.timeZoneName = timeZoneObject.getDisplayName(isDst, TimeZone.LONG);
     }
 
+    public String getTimeZoneName() {
+        return timeZoneName;
+    }
+
     /**
      * Finds the corresponding {@link TimeZone} object to the provided string.
      * <p>
