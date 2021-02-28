@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 
 public class Club {
 
-    private static final ResourceBundle LANG_BUNDLE = new Language("en")
+    private static final ResourceBundle LANG_BUNDLE = Messenger.getConfig().getLang()
             .getBundle("Club");
     private static final ResourceBundle CLUB_BUNDLE = ResourceBundle
             .getBundle("assignment02PartB.resources.ClubInfo");
@@ -75,6 +75,9 @@ public class Club {
             String shortName) {
     }
 
+    /**
+     * Display information about the club.
+     */
     public void displayInfo() {
         String[] fields = {
                 LANG_BUNDLE.getString("officialName.label"),
@@ -101,10 +104,10 @@ public class Club {
                 numberOfNlPennants,
                 numberOfDivisionTitles,
                 numberOfWildCardBerths,
-                String.valueOf(owners),
-                String.valueOf(president),
-                String.valueOf(generalManager),
-                String.valueOf(manager)
+                String.join(", ", owners),
+                president.displayInfo(),
+                generalManager.displayInfo(),
+                manager.displayInfo()
         };
         ChatSession.printTable(fields, values);
     }
