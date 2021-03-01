@@ -32,10 +32,8 @@ public final class Config {
     private static final University defaultUniversity = new University();
     // @formatter:on
 
-    //
-    // Instance Data Fields
-    //
-    private Language lang;
+    private final ResourceBundle langBundle;
+    private final Language lang;
     private Timer timer;
     private Color color;
     private String logDirectoryPath;
@@ -50,6 +48,8 @@ public final class Config {
 
     public Config() {
         ChatSession.displayAppBanner();
+        lang = setLangPref();
+        langBundle = lang.getBundle("Config");
         setPreferences();
     }
 
@@ -150,16 +150,15 @@ public final class Config {
     }
 
     private void displayInfo() {
-        final ResourceBundle bundle = lang.getBundle("Config");
         String[] labels = {
-                bundle.getString("language.label"),
-                bundle.getString("timeZone.label"),
-                bundle.getString("color.label"),
-                bundle.getString("stdOutLogPath.label"),
-                bundle.getString("stdErrLogPath.label"),
-                bundle.getString("receiptLogPath.label"),
-                bundle.getString("defaultClub.label"),
-                bundle.getString("defaultUniversity.label")
+                langBundle.getString("language.label"),
+                langBundle.getString("timeZone.label"),
+                langBundle.getString("color.label"),
+                langBundle.getString("stdOutLogPath.label"),
+                langBundle.getString("stdErrLogPath.label"),
+                langBundle.getString("receiptLogPath.label"),
+                langBundle.getString("defaultClub.label"),
+                langBundle.getString("defaultUniversity.label")
         };
         String[] values = {
                 lang.getLanguage(),
@@ -168,24 +167,45 @@ public final class Config {
                 stdOutFilePath,
                 stdErrFilePath,
                 "",
-                defaultClubName,
-                defaultUniversityName
+                langBundle.getString("defaultClub.value"),
+                langBundle.getString("defaultUniversity.value")
         };
         ChatSession.printLineSep();
         ChatSession.printTable(labels, values);
         ChatSession.printLineSep();
     }
 
+    /**
+     * Sets the language preference by prompting user. This is run prior to setting other
+     * preferences (e.g., time zone) and is invoked from the sole constructor.
+     * <p>
+     * This process has priority and is separate from the rest of {@link #setPreferences()} due to
+     * other parts' reliance on localized strings.
+     *
+     * @return The {@link Language} to use for this instance.
+     * @see #setPreferences()
+     */
+    private Language setLangPref() {
+        return new Language(ChatSession.promptString("Language"));
+    }
+
+    /**
+     * Set the program's preferences.
+     * <p>
+     * Default settings and program's data are loaded from the resource bundle(s). Preferences set
+     * by the user are prompted via stdin (just time zone for this implementation). Note that
+     * language is configured separately and is invoked immediately prior to this method.
+     *
+     * @see #setLangPref()
+     */
     public void setPreferences() {
-        lang = new Language(ChatSession.promptString("Language"));
-        timer = new Timer(ChatSession.promptString(
-                lang.getBundle("Config").getString("timeZone.label")));
+        timer = new Timer(ChatSession.promptString(langBundle.getString("timeZone.label")));
         color = defaultColor;
         stdOutFilePath = defaultStdOutFilePath;
         stdErrFilePath = defaultStdErrFilePath;
         //receipt
-        clubName = defaultClubName;
-        universityName = defaultUniversityName;
+        club = new Club();
+        university = new University();
         this.displayInfo();
     }
 }
