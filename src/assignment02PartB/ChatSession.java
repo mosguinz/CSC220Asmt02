@@ -86,6 +86,16 @@ public final class ChatSession {
     }
 
     /**
+     * Convenience method to print chat timestamp with a message.
+     *
+     * @param msg The message to add after the timestamp.
+     */
+    private static void printChatTimestamp(String msg) {
+        System.out.println(String.format("%s - %s",
+                Messenger.getConfig().getTimer().getChatTimestamp(), msg));
+    }
+
+    /**
      * Display a fake loading screen.
      */
     private static void fakeLoading() {
@@ -162,8 +172,7 @@ public final class ChatSession {
     }
 
     private void startChatSession() {
-        String ts = Messenger.getConfig().getTimer().getChatTimestamp();
-        System.out.printf("%s - %s%n%n", ts, bundle.getString("ts.sessionStart"));
+        printChatTimestamp(bundle.getString("ts.sessionStart"));
         club.sayDialogue(String.format(bundle.getString("clubWelcomeMessage"),
                 club.getOfficialName().toUpperCase()));
         printLineSep();
@@ -216,6 +225,7 @@ public final class ChatSession {
     }
 
     private void stopChatSession() {
+        printChatTimestamp(bundle.getString("ts.sessionEnd"));
     }
 
     public void runChatSession() {
