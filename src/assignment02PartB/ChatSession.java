@@ -166,7 +166,7 @@ public final class ChatSession {
                 Color.sfsuHighlight(university.getName().toUpperCase())
         ));
 
-        new Card(player, student, scan);
+        new Card(player, student, scan).runCardWizard();
 
         student.sayPrompt();
         readStringIn();
