@@ -55,6 +55,6 @@ public class Student extends Person {
      * Prints a prompt message with the student's name. Includes a space at the end.
      */
     public void sayPrompt() {
-        System.out.printf("%s: ", toString());
+        System.out.printf("%s: ", Color.sfsuHighlight(toString()));
     }
 }

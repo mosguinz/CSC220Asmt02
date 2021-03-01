@@ -198,8 +198,10 @@ public final class ChatSession {
 
         player.sayDialogue(String.format(bundle.getString("player.greeting"), firstName));
         fakeChatDelay();
-        player.sayDialogue(String.format(bundle.getString("player.universityEmphasis"),
-                university.getName().toUpperCase()));
+        player.sayDialogue(String.format(
+                bundle.getString("player.universityEmphasis"),
+                Color.sfsuHighlight(university.getName().toUpperCase())
+        ));
         int amountOfCards = promptCardAmount();
         new Card().printCards(promptCardParams(amountOfCards), student);
 
