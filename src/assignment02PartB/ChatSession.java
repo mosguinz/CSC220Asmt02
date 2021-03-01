@@ -140,6 +140,27 @@ public final class ChatSession {
         throw new InputMismatchException(String.format("Exceeded %d tries.", maxTries));
     }
 
+    private String[][] promptCardParams(int amountOfCards) {
+        String[][] params = new String[3][amountOfCards];
+        player.sayDialogue(bundle.getString("player.card.parameterPrompt"));
+        System.out.printf("    [1] %s%n", bundle.getString("player.card.parameterPrompt.1"));
+        System.out.printf("    [2] %s%n", bundle.getString("player.card.parameterPrompt.2"));
+        System.out.printf("    [3] %s%n", bundle.getString("player.card.parameterPrompt.3"));
+        for (int i = 0; i < amountOfCards; i++) {
+            player.sayDialogue(
+                    String.format(bundle.getString("player.card.cardNumberPrompt"), i + 1)
+            );
+            for (int j = 0; j < 3; j++) {
+                student.sayPrompt();
+                System.out.printf("[%d] ", j + 1);
+                params[i][j] = scan.nextLine();
+            }
+        }
+        player.sayDialogue(String.format(
+                bundle.getString("player.card.confirmation"), student.getFirstName()));
+        return params;
+    }
+
     private void startChatSession() {
         String ts = Messenger.getConfig().getTimer().getChatTimestamp();
         System.out.printf("%s - %s%n%n", ts, bundle.getString("ts.sessionStart"));
@@ -179,7 +200,8 @@ public final class ChatSession {
         fakeChatDelay();
         player.sayDialogue(String.format(bundle.getString("player.universityEmphasis"),
                 university.getName().toUpperCase()));
-        promptCardAmount();
+        int amountOfCards = promptCardAmount();
+        promptCardParams(amountOfCards);
     }
 
     private void runQuiz() {
