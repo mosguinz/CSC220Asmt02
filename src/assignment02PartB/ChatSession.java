@@ -83,6 +83,22 @@ public final class ChatSession {
         return scan.nextLine().strip();
     }
 
+    /**
+     * Display a fake loading screen.
+     */
+    private static void fakeLoading() {
+        for (int i = 0; i < 5; i++) {
+            try {
+                System.out.print(". ");
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.err.println(e);
+            }
+        }
+        System.out.println();
+    }
+
+
     private void startChatSession() {
         String ts = Messenger.getConfig().getTimer().getChatTimestamp();
         System.out.printf("%s - %s%n%n", ts, bundle.getString("ts.sessionStart"));
@@ -94,6 +110,9 @@ public final class ChatSession {
         printLineSep();
         System.out.println();
         student = getStudentInfo();
+
+        club.sayDialogue(bundle.getString("preChat.connecting"));
+        fakeLoading();
     }
 
     private Student getStudentInfo() {
