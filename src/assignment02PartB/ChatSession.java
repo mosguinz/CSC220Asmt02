@@ -26,6 +26,7 @@ public final class ChatSession {
     private final University university;
     private final ResourceBundle bundle;
     private Student student;
+    private Player player;
 
     public ChatSession(Club club, University university) {
         this.club = club;
@@ -98,6 +99,10 @@ public final class ChatSession {
         System.out.println();
     }
 
+    // lazy debug
+    public static void main(String[] args) {
+        new ChatSession(new Club(), new University()).runChatSession();
+    }
 
     private void startChatSession() {
         String ts = Messenger.getConfig().getTimer().getChatTimestamp();
@@ -127,6 +132,13 @@ public final class ChatSession {
     }
 
     private void connectChatters() {
+        player = new Player(club);
+        printLineSep();
+        player.displayInfo();
+        printLineSep();
+        fakeLoading();
+
+        player.sayDialogue("Hello");
     }
 
     private void runQuiz() {
