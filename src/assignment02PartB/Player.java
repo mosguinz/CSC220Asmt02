@@ -20,20 +20,6 @@ public class Player extends Person {
     private String throwSide;
     private String mlbDebut;
 
-    public Player(String firstName, String lastName) {
-        super(firstName, lastName);
-    }
-
-    public Player(String firstName, String lastName, String position, String number, String batSide,
-            String throwSide, String mlbDebut) {
-        super(firstName, lastName);
-        this.position = position;
-        this.number = number;
-        this.batSide = batSide;
-        this.throwSide = throwSide;
-        this.mlbDebut = mlbDebut;
-    }
-
     @Override
     public String toString() {
         return String.format("%s, %s", super.toString(), number);
