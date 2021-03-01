@@ -50,4 +50,13 @@ public class Student extends Person {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    /**
+     * Prints a prompt message with the player's name and number. Includes a space at the end.
+     *
+     * @param m The message to use as a prompt.
+     */
+    public void sayPrompt(String m) {
+        System.out.printf("%s: %s ", toString(), m);
+    }
 }
