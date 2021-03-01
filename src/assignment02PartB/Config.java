@@ -150,7 +150,7 @@ public final class Config {
     }
 
     private void displayInfo() {
-        ResourceBundle bundle = lang.getBundle("Config");
+        final ResourceBundle bundle = lang.getBundle("Config");
         String[] labels = {
                 bundle.getString("language.label"),
                 bundle.getString("timeZone.label"),
@@ -176,7 +176,8 @@ public final class Config {
 
     public void setPreferences() {
         lang = new Language(ChatSession.promptString("Language"));
-        timer = new Timer(ChatSession.promptString("Time Zone"));
+        timer = new Timer(ChatSession.promptString(
+                lang.getBundle("Config").getString("timeZone.label")));
         color = defaultColor;
         stdOutFilePath = defaultStdOutFilePath;
         stdErrFilePath = defaultStdErrFilePath;
