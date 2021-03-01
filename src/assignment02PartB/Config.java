@@ -50,11 +50,7 @@ public final class Config {
 
     public Config() {
         ChatSession.displayAppBanner();
-    }
-
-    public static void main(String[] args) {
-        Config c = new Config();
-        c.setPreferences();
+        setPreferences();
     }
 
     public static Language getDefaultLang() {
