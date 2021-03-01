@@ -52,11 +52,9 @@ public class Student extends Person {
     }
 
     /**
-     * Prints a prompt message with the player's name and number. Includes a space at the end.
-     *
-     * @param m The message to use as a prompt.
+     * Prints a prompt message with the student's name. Includes a space at the end.
      */
-    public void sayPrompt(String m) {
-        System.out.printf("%s: %s ", toString(), m);
+    public void sayPrompt() {
+        System.out.printf("%s: ", toString());
     }
 }
