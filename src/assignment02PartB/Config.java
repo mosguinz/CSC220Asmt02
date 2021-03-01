@@ -186,7 +186,8 @@ public final class Config {
      * @see #setPreferences()
      */
     private Language setLangPref() {
-        return new Language(ChatSession.promptString("Language"));
+        System.out.print("Language: ");
+        return new Language(ChatSession.readStringIn());
     }
 
     /**
@@ -199,7 +200,8 @@ public final class Config {
      * @see #setLangPref()
      */
     public void setPreferences() {
-        timer = new Timer(ChatSession.promptString(langBundle.getString("timeZone.label")));
+        System.out.printf("%s: ", langBundle.getString("timeZone.label"));
+        timer = new Timer(ChatSession.readStringIn());
         color = defaultColor;
         stdOutFilePath = defaultStdOutFilePath;
         stdErrFilePath = defaultStdErrFilePath;

@@ -76,11 +76,9 @@ public final class ChatSession {
     /**
      * Prompts the user for an input. Strips all leading and trailing whitespaces.
      *
-     * @param prompt The prompt to appear, preceded by a colon.
      * @return The string from stdin.
      */
-    public static String promptString(String prompt) {
-        System.out.print(prompt + ": ");
+    public static String readStringIn() {
         return scan.nextLine().strip();
     }
 
@@ -103,6 +101,7 @@ public final class ChatSession {
         System.out.printf("%s - %s%n%n", ts, bundle.getString("ts.sessionStart"));
         printDialogue(club, String.format(bundle.getString("clubWelcomeMessage"),
                 club.getOfficialName().toUpperCase()));
+        club.displayInfo();
     }
 
     private void connectChatters() {
