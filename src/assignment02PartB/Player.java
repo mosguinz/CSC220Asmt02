@@ -33,4 +33,9 @@ public class Player extends Person {
         this.throwSide = throwSide;
         this.mlbDebut = mlbDebut;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s, %s", super.toString(), number);
+    }
 }
