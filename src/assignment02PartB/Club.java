@@ -75,6 +75,10 @@ public class Club {
             String shortName) {
     }
 
+    public String getOfficialName() {
+        return officialName;
+    }
+
     /**
      * Display information about the club.
      */
