@@ -201,7 +201,7 @@ public final class ChatSession {
         player.sayDialogue(String.format(bundle.getString("player.universityEmphasis"),
                 university.getName().toUpperCase()));
         int amountOfCards = promptCardAmount();
-        promptCardParams(amountOfCards);
+        new Card().printCards(promptCardParams(amountOfCards), student);
     }
 
     private void runQuiz() {
