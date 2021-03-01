@@ -15,11 +15,6 @@ import java.util.ResourceBundle;
 
 public class Club {
 
-    private static final ResourceBundle LANG_BUNDLE = Messenger.getConfig().getLang()
-            .getBundle("Club");
-    private static final ResourceBundle CLUB_BUNDLE = ResourceBundle
-            .getBundle("assignment02PartB.resources.ClubInfo");
-
     private String officialName;
     private String shortName;
     private String established;
@@ -35,33 +30,35 @@ public class Club {
     private Manager manager;
 
     /**
-     * Sole constructor to instantiate a {@link Club}. Club information are from the {@link
-     * #CLUB_BUNDLE} resource bundle.
+     * Sole constructor to instantiate a {@link Club}. Loads the club information from the resource
+     * bundle.
      */
     public Club() {
-        officialName = CLUB_BUNDLE.getString("officialName");
-        shortName = CLUB_BUNDLE.getString("shortName");
-        established = CLUB_BUNDLE.getString("established");
-        colors = CLUB_BUNDLE.getString("colors").split(",");
-        ballpark = CLUB_BUNDLE.getString("ballpark");
-        numberOfWorldSeriesTitles = CLUB_BUNDLE.getString("numberOfWorldSeriesTitles");
-        numberOfNlPennants = CLUB_BUNDLE.getString("numberOfNlPennants");
-        numberOfDivisionTitles = CLUB_BUNDLE.getString("numberOfDivisionTitles");
-        numberOfWildCardBerths = CLUB_BUNDLE.getString("numberOfWildCardBerths");
-        owners = CLUB_BUNDLE.getString("owners").split(",");
+        final ResourceBundle bundle = ResourceBundle
+                .getBundle("assignment02PartB.resources.ClubInfo");
+        officialName = bundle.getString("officialName");
+        shortName = bundle.getString("shortName");
+        established = bundle.getString("established");
+        colors = bundle.getString("colors").split(",");
+        ballpark = bundle.getString("ballpark");
+        numberOfWorldSeriesTitles = bundle.getString("numberOfWorldSeriesTitles");
+        numberOfNlPennants = bundle.getString("numberOfNlPennants");
+        numberOfDivisionTitles = bundle.getString("numberOfDivisionTitles");
+        numberOfWildCardBerths = bundle.getString("numberOfWildCardBerths");
+        owners = bundle.getString("owners").split(",");
         president = new President(
-                CLUB_BUNDLE.getString("president.firstName"),
-                CLUB_BUNDLE.getString("president.lastName"),
+                bundle.getString("president.firstName"),
+                bundle.getString("president.lastName"),
                 this
         );
         generalManager = new GeneralManager(
-                CLUB_BUNDLE.getString("generalManager.firstName"),
-                CLUB_BUNDLE.getString("generalManager.lastName"),
+                bundle.getString("generalManager.firstName"),
+                bundle.getString("generalManager.lastName"),
                 this
         );
         manager = new Manager(
-                CLUB_BUNDLE.getString("manager.firstName"),
-                CLUB_BUNDLE.getString("manager.lastName"),
+                bundle.getString("manager.firstName"),
+                bundle.getString("manager.lastName"),
                 this
         );
     }
@@ -82,20 +79,21 @@ public class Club {
      * Display information about the club.
      */
     public void displayInfo() {
+        final ResourceBundle bundle = Messenger.getConfig().getLang().getBundle("Club");
         String[] fields = {
-                LANG_BUNDLE.getString("officialName.label"),
-                LANG_BUNDLE.getString("shortName.label"),
-                LANG_BUNDLE.getString("established.label"),
-                LANG_BUNDLE.getString("colors.label"),
-                LANG_BUNDLE.getString("ballpark.label"),
-                LANG_BUNDLE.getString("numberOfWorldSeriesTitles.label"),
-                LANG_BUNDLE.getString("numberOfNlPennants.label"),
-                LANG_BUNDLE.getString("numberOfDivisionTitles.label"),
-                LANG_BUNDLE.getString("numberOfWildCardBerths.label"),
-                LANG_BUNDLE.getString("owners.label"),
-                LANG_BUNDLE.getString("president.label"),
-                LANG_BUNDLE.getString("generalManager.label"),
-                LANG_BUNDLE.getString("manager.label")
+                bundle.getString("officialName.label"),
+                bundle.getString("shortName.label"),
+                bundle.getString("established.label"),
+                bundle.getString("colors.label"),
+                bundle.getString("ballpark.label"),
+                bundle.getString("numberOfWorldSeriesTitles.label"),
+                bundle.getString("numberOfNlPennants.label"),
+                bundle.getString("numberOfDivisionTitles.label"),
+                bundle.getString("numberOfWildCardBerths.label"),
+                bundle.getString("owners.label"),
+                bundle.getString("president.label"),
+                bundle.getString("generalManager.label"),
+                bundle.getString("manager.label")
         };
         String[] values = {
                 officialName,
