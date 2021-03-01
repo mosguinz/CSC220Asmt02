@@ -45,8 +45,7 @@ public class Card {
         for (int i = 0; i <= MAX_RETRIES; i++) {
             try {
                 player.sayPrompt(bundle.getString("player.amountPrompt"));
-                int cards = scan.nextInt();
-                return cards;
+                return scan.nextInt();
             } catch (InputMismatchException e) {
                 System.err.println(e);
                 System.out.printf(bundle.getString("error.invalidInputTypeCardAmount"),
@@ -83,15 +82,14 @@ public class Card {
         SFGiantsCardGenerator generator = new SFGiantsCardGenerator();
         final String firstName = student.getFirstName();
         final String email = student.getEmail();
-        final String officialSong = Language.getOfficialSong();
 
-        for (int i = 0; i < cards.length; i++) {
-            final String recipient = cards[i][0];
-            final char artSymbol = cards[i][1].charAt(0);
-            final String message = cards[i][2];
+        for (String[] card : cards) {
+            final String recipient = card[0];
+            final char artSymbol = card[1].charAt(0);
+            final String message = card[2];
 
-            System.out.println();
             try {
+                System.out.println();
                 generator.generateSFGiantsCard(recipient, message, firstName, email,
                         artSymbol, artSize, artFont);
             } catch (Exception e) {
