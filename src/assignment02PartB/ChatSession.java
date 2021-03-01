@@ -101,7 +101,10 @@ public final class ChatSession {
         System.out.printf("%s - %s%n%n", ts, bundle.getString("ts.sessionStart"));
         printDialogue(club, String.format(bundle.getString("clubWelcomeMessage"),
                 club.getOfficialName().toUpperCase()));
+        printLineSep();
         club.displayInfo();
+        printLineSep();
+        System.out.println();
     }
 
     private void connectChatters() {
