@@ -90,19 +90,19 @@ public final class ChatSession {
      * @param subject The name of the speaker.
      * @param message The message to output.
      */
-    public static void printDialogue(String subject, String message) {
-        System.out.printf("%s: %s", subject, message);
+    public static void printDialogue(Person subject, String message) {
+        System.out.printf("%s: %s%n", subject, message);
+    }
+
+    public static void printDialogue(Club subject, String message) {
+        System.out.printf("%s: %s%n", subject.getShortName(), message);
     }
 
     private void startChatSession() {
         String ts = Messenger.getConfig().getTimer().getChatTimestamp();
         System.out.printf("%s - %s%n%n", ts, bundle.getString("ts.sessionStart"));
-        printDialogue(
-                club.getShortName(), String.format(
-                        bundle.getString("clubWelcomeMessage"),
-                        club.getOfficialName().toUpperCase()
-                )
-        );
+        printDialogue(club, String.format(bundle.getString("clubWelcomeMessage"),
+                club.getOfficialName().toUpperCase()));
     }
 
     private void connectChatters() {
