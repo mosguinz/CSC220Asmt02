@@ -141,7 +141,7 @@ public final class ChatSession {
     }
 
     private String[][] promptCardParams(int amountOfCards) {
-        String[][] params = new String[3][amountOfCards];
+        String[][] params = new String[amountOfCards][3];
         player.sayDialogue(bundle.getString("player.card.parameterPrompt"));
         System.out.printf("    [1] %s%n", bundle.getString("player.card.parameterPrompt.1"));
         System.out.printf("    [2] %s%n", bundle.getString("player.card.parameterPrompt.2"));
@@ -202,6 +202,7 @@ public final class ChatSession {
                 university.getName().toUpperCase()));
         int amountOfCards = promptCardAmount();
         new Card().printCards(promptCardParams(amountOfCards), student);
+
     }
 
     private void runQuiz() {
