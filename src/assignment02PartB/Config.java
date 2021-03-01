@@ -171,7 +171,9 @@ public final class Config {
                 defaultClubName,
                 defaultUniversityName
         };
+        ChatSession.printLineSep();
         ChatSession.printTable(labels, values);
+        ChatSession.printLineSep();
     }
 
     public void setPreferences() {
