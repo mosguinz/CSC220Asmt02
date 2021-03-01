@@ -22,6 +22,14 @@ class QuestionAnswer {
         this.answer = answer;
     }
 
+    public String getQuestion() {
+        return question;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
     /**
      * Validate the given {@code answer}. Validation is strips all trailing and leading whitespaces
      * and is case-insensitive.
