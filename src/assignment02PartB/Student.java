@@ -26,6 +26,10 @@ public class Student extends Person {
         this.email = email;
     }
 
+    public Student(String firstName, University university, String email) {
+        this(firstName, "", university, email);
+    }
+
     public Student(University university, String email) {
         this.university = university;
         this.email = email;
