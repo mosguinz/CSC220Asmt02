@@ -21,4 +21,8 @@ public class University {
     public University() {
         this.name = DEFAULT_NAME;
     }
+
+    public String getName() {
+        return name;
+    }
 }
