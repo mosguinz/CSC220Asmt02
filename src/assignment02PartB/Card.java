@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 public class Card {
 
-    private static final int MAX_TRIES = 3;
+    private static final int MAX_RETRIES = 3;
     private final int artSize = 0;
     // Please change artSize, if needed, to get an identical output
     private final String artFont = "";
@@ -42,7 +42,7 @@ public class Card {
      * @throws InputMismatchException Raised when the user exceeded the amount of tries.
      */
     private int promptCardAmount() throws InputMismatchException {
-        for (int i = 0; i <= MAX_TRIES; i++) {
+        for (int i = 0; i <= MAX_RETRIES; i++) {
             try {
                 player.sayPrompt(bundle.getString("player.amountPrompt"));
                 int cards = scan.nextInt();
@@ -50,20 +50,20 @@ public class Card {
             } catch (InputMismatchException e) {
                 System.err.println(e);
                 System.out.printf(bundle.getString("error.invalidInputTypeCardAmount"),
-                        MAX_TRIES - i);
+                        MAX_RETRIES - i);
             } finally {
                 scan.nextLine();
             }
         }
-        throw new InputMismatchException(String.format("Exceeded %d tries.", MAX_TRIES));
+        throw new InputMismatchException(String.format("Exceeded %d retries.", MAX_RETRIES));
     }
 
     private String[][] promptCardParams(int amountOfCards) {
         String[][] params = new String[amountOfCards][3];
         player.sayDialogue(bundle.getString("player.parameterPrompt"));
-        System.out.printf("    [1] %s%n", bundle.getString("player.parameterPrompt.1"));
-        System.out.printf("    [2] %s%n", bundle.getString("player.parameterPrompt.2"));
-        System.out.printf("    [3] %s%n", bundle.getString("player.parameterPrompt.3"));
+        System.out.printf("%4s[1] %s%n", "", bundle.getString("player.parameterPrompt.1"));
+        System.out.printf("%4s[2] %s%n", "", bundle.getString("player.parameterPrompt.2"));
+        System.out.printf("%4s[3] %s%n", "", bundle.getString("player.parameterPrompt.3"));
         for (int i = 0; i < amountOfCards; i++) {
             player.sayDialogue(
                     String.format(bundle.getString("player.cardNumberPrompt"), i + 1)
