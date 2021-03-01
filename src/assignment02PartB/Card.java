@@ -33,7 +33,6 @@ public class Card {
         this.player = player;
         this.student = student;
         this.scan = scan;
-        printCards(promptCardParams(promptCardAmount()));
     }
 
     /**
@@ -80,7 +79,7 @@ public class Card {
         return params;
     }
 
-    public void printCards(String[][] cards) {
+    private void printCards(String[][] cards) {
         SFGiantsCardGenerator generator = new SFGiantsCardGenerator();
         final String firstName = student.getFirstName();
         final String email = student.getEmail();
@@ -100,5 +99,14 @@ public class Card {
             }
         }
         System.out.println();
+    }
+
+    /**
+     * Start the interactive card creation wizard.
+     */
+    public void runCardWizard() {
+        int cardAmount = promptCardAmount();
+        String[][] cardParams = promptCardParams(cardAmount);
+        printCards(cardParams);
     }
 }
