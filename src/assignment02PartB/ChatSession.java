@@ -9,6 +9,7 @@
  */
 package assignment02PartB;
 
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 // Please organize all the given files in 1 same package
@@ -23,10 +24,12 @@ public final class ChatSession {
     private static final Scanner scan = new Scanner(System.in);
     private final Club club;
     private final University university;
+    private final ResourceBundle langBundle;
 
     public ChatSession(Club club, University university) {
         this.club = club;
         this.university = university;
+        this.langBundle = Messenger.getConfig().getLang().getBundle("ChatSession");
     }
 
     /**
@@ -37,22 +40,22 @@ public final class ChatSession {
     }
 
     /**
-     * Prints the given provided {@code fields} and {
-     *
-     * @param fields The array of strings as fields. The size of the array must be equal to those of
-     *               {@code values}.
-     * @param values The array of strings as values. The size of the array must be equal to those of
-     *               {@code fields}.
-     * @values} in a table-like format.
+     * Prints the given provided {@code fields} and {@code values} in a table-like format.
      * <p>
      * Each field and value are printed in pairs on each line, the format of which is specified in
-     * the sample output. See the example below.      <pre>{@code
+     * the sample output. See the example below.
+     * <pre>{@code
      * Language:                 English
      * Time Zone:                Pacific Standard Time
      * Color:                    ANSI
      * Standard Output Log:      ./src/assignment02PartB/log/StandardOut.log
      * Default club:             SF Giants
      * }</pre>
+     *
+     * @param fields The array of strings as fields. The size of the array must be equal to those of
+     *               {@code values}.
+     * @param values The array of strings as values. The size of the array must be equal to those of
+     *               {@code fields}.
      */
     public static void printTable(String[] fields, String[] values) {
         for (int i = 0; i < fields.length; i++) {
