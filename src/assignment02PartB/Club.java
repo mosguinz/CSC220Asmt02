@@ -120,4 +120,22 @@ public class Club {
         };
         ChatSession.printTable(fields, values);
     }
+
+    /**
+     * Prints a dialogue message with the club's short name. Includes a newline at the end.
+     *
+     * @param m The message to print.
+     */
+    public void sayDialogue(String m) {
+        System.out.printf("%s: %s%n", shortName, m);
+    }
+
+    /**
+     * Prints a prompt message with the club's short name. Includes a space at the end.
+     *
+     * @param m The message to use as a prompt.
+     */
+    public void sayPrompt(String m) {
+        System.out.printf("%s: %s ", shortName, m);
+    }
 }

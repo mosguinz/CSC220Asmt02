@@ -82,34 +82,10 @@ public final class ChatSession {
         return scan.nextLine().strip();
     }
 
-    /**
-     * Prints in a dialogue in the format "[Subject]: [message]".
-     *
-     * @param subject The name of the speaker.
-     * @param message The message to output.
-     */
-    public static void printDialoguePrompt(Person subject, String message) {
-        System.out.printf("%s: %s ", subject, message);
-    }
-
-    public static void printDialoguePrompt(Club subject, String message) {
-        System.out.printf("%s: %s ", subject.getShortName(), message);
-    }
-
-    public static void printDialogue(Person subject, String message) {
-        printDialoguePrompt(subject, message);
-        System.out.println();
-    }
-
-    public static void printDialogue(Club subject, String message) {
-        printDialoguePrompt(subject, message);
-        System.out.println();
-    }
-
     private void startChatSession() {
         String ts = Messenger.getConfig().getTimer().getChatTimestamp();
         System.out.printf("%s - %s%n%n", ts, bundle.getString("ts.sessionStart"));
-        printDialogue(club, String.format(bundle.getString("clubWelcomeMessage"),
+        club.sayDialogue(String.format(bundle.getString("clubWelcomeMessage"),
                 club.getOfficialName().toUpperCase()));
         printLineSep();
         club.displayInfo();
@@ -119,9 +95,9 @@ public final class ChatSession {
     }
 
     private Student getStudentInfo() {
-        printDialoguePrompt(club, bundle.getString("preChat.namePrompt"));
+        club.sayPrompt(bundle.getString("preChat.namePrompt"));
         String[] name = readStringIn().split("\\s", 2);
-        printDialoguePrompt(club, bundle.getString("preChat.emailPrompt"));
+        club.sayPrompt(bundle.getString("preChat.emailPrompt"));
         String email = readStringIn();
         if (name.length == 1) {
             return new Student(name[0], university, email);

@@ -38,4 +38,22 @@ public class Player extends Person {
     public String toString() {
         return String.format("%s, %s", super.toString(), number);
     }
+
+    /**
+     * Prints a dialogue message with the player's name and number. Includes a newline at the end.
+     *
+     * @param m The message to print.
+     */
+    public void sayDialogue(String m) {
+        System.out.printf("%s: %s%n", toString(), m);
+    }
+
+    /**
+     * Prints a prompt message with the player's name and number. Includes a space at the end.
+     *
+     * @param m The message to use as a prompt.
+     */
+    public void sayPrompt(String m) {
+        System.out.printf("%s: %s ", toString(), m);
+    }
 }
