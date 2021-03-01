@@ -9,6 +9,7 @@
  */
 package assignment02PartB;
 
+import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -99,9 +100,44 @@ public final class ChatSession {
         System.out.println();
     }
 
+    /**
+     * Start a fake chat delay.
+     */
+    private static void fakeChatDelay() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            System.err.println(e);
+        }
+    }
+
     // lazy debug
     public static void main(String[] args) {
         new ChatSession(new Club(), new University()).runChatSession();
+    }
+
+    /**
+     * Prompts the number of card to order.
+     *
+     * @return An integer.
+     * @throws InputMismatchException Raised when the user exceeded the amount of tries.
+     */
+    public int promptCardAmount() throws InputMismatchException {
+        final int maxTries = 3;
+        for (int i = 0; i <= maxTries; i++) {
+            try {
+                player.sayPrompt(bundle.getString("player.card.amountPrompt"));
+                int cards = scan.nextInt();
+                return cards;
+            } catch (InputMismatchException e) {
+                System.err.println(e);
+                System.out.printf(bundle.getString("error.invalidInputTypeCardAmount"),
+                        maxTries - i);
+            } finally {
+                scan.nextLine();
+            }
+        }
+        throw new InputMismatchException(String.format("Exceeded %d tries.", maxTries));
     }
 
     private void startChatSession() {
@@ -133,12 +169,17 @@ public final class ChatSession {
 
     private void connectChatters() {
         player = new Player(club);
+        String firstName = student.getFirstName();
         printLineSep();
         player.displayInfo();
         printLineSep();
         fakeLoading();
 
-        player.sayDialogue("Hello");
+        player.sayDialogue(String.format(bundle.getString("player.greeting"), firstName));
+        fakeChatDelay();
+        player.sayDialogue(String.format(bundle.getString("player.universityEmphasis"),
+                university.getName().toUpperCase()));
+        promptCardAmount();
     }
 
     private void runQuiz() {
