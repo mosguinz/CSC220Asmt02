@@ -203,6 +203,10 @@ public final class ChatSession {
         int amountOfCards = promptCardAmount();
         new Card().printCards(promptCardParams(amountOfCards), student);
 
+        student.sayPrompt();
+        readStringIn();
+        player.sayDialogue(String.format(bundle.getString("player.card.thankYou"), firstName));
+        System.out.println();
     }
 
     private void runQuiz() {
