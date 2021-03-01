@@ -12,12 +12,22 @@ package assignment02PartB;
 // Please organize all the given files in 1 same package
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
 
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
 public class Quiz {
 
-    //
-    // Instance Data Fields
-    //
-    private Club club;
-    private Student student;
+    private static final int MISSES_ALLOWED = 1;
+
+    private final Club club;
+    private final Student student;
+    private final ResourceBundle bundle;
     private ArrayList<QuestionAnswer> questionAnswer;
+
+    public Quiz(Club club, Student student) {
+        bundle = Messenger.getConfig().getLang().getBundle("Quiz");
+        this.club = club;
+        this.student = student;
+    }
+
 }
