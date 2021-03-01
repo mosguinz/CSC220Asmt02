@@ -46,8 +46,8 @@ public class Language {
      * @param language The language to use.
      */
     public Language(String language) {
-        this.language = language;
         this.locale = findLocale(language);
+        this.language = getLanguageLabel(locale);
     }
 
     public static String getOfficialAppName() {
@@ -88,6 +88,19 @@ public class Language {
 
     public Locale getLocale() {
         return locale;
+    }
+
+    /**
+     * Gets the human-readable name of the language in the default locale.
+     *
+     * @param l The locale object.
+     * @return The string used to represent the language.
+     */
+    private String getLanguageLabel(Locale l) {
+        if (l.getLanguage().equalsIgnoreCase("alien")) {
+            return "Alien";
+        }
+        return l.getDisplayLanguage(DEFAULT_LOCALE);
     }
 
     /**
