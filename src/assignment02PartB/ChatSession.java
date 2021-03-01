@@ -88,12 +88,22 @@ public final class ChatSession {
      * @param subject The name of the speaker.
      * @param message The message to output.
      */
+    public static void printDialoguePrompt(Person subject, String message) {
+        System.out.printf("%s: %s ", subject, message);
+    }
+
+    public static void printDialoguePrompt(Club subject, String message) {
+        System.out.printf("%s: %s ", subject.getShortName(), message);
+    }
+
     public static void printDialogue(Person subject, String message) {
-        System.out.printf("%s: %s%n", subject, message);
+        printDialoguePrompt(subject, message);
+        System.out.println();
     }
 
     public static void printDialogue(Club subject, String message) {
-        System.out.printf("%s: %s%n", subject.getShortName(), message);
+        printDialoguePrompt(subject, message);
+        System.out.println();
     }
 
     private void startChatSession() {
@@ -105,6 +115,18 @@ public final class ChatSession {
         club.displayInfo();
         printLineSep();
         System.out.println();
+        getStudentInfo();
+    }
+
+    private Student getStudentInfo() {
+        printDialoguePrompt(club, bundle.getString("preChat.namePrompt"));
+        String[] name = readStringIn().split("\\s", 2);
+        printDialoguePrompt(club, bundle.getString("preChat.emailPrompt"));
+        String email = readStringIn();
+        if (name.length == 1) {
+            return new Student(name[0], university, email);
+        }
+        return new Student(name[0], name[1], university, email);
     }
 
     private void connectChatters() {
