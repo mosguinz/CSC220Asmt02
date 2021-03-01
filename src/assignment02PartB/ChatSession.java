@@ -9,7 +9,6 @@
  */
 package assignment02PartB;
 
-import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -126,51 +125,6 @@ public final class ChatSession {
         new ChatSession(new Club(), new University()).runChatSession();
     }
 
-    /**
-     * Prompts the number of card to order.
-     *
-     * @return An integer.
-     * @throws InputMismatchException Raised when the user exceeded the amount of tries.
-     */
-    public int promptCardAmount() throws InputMismatchException {
-        final int maxTries = 3;
-        for (int i = 0; i <= maxTries; i++) {
-            try {
-                player.sayPrompt(bundle.getString("player.card.amountPrompt"));
-                int cards = scan.nextInt();
-                return cards;
-            } catch (InputMismatchException e) {
-                System.err.println(e);
-                System.out.printf(bundle.getString("error.invalidInputTypeCardAmount"),
-                        maxTries - i);
-            } finally {
-                scan.nextLine();
-            }
-        }
-        throw new InputMismatchException(String.format("Exceeded %d tries.", maxTries));
-    }
-
-    private String[][] promptCardParams(int amountOfCards) {
-        String[][] params = new String[amountOfCards][3];
-        player.sayDialogue(bundle.getString("player.card.parameterPrompt"));
-        System.out.printf("    [1] %s%n", bundle.getString("player.card.parameterPrompt.1"));
-        System.out.printf("    [2] %s%n", bundle.getString("player.card.parameterPrompt.2"));
-        System.out.printf("    [3] %s%n", bundle.getString("player.card.parameterPrompt.3"));
-        for (int i = 0; i < amountOfCards; i++) {
-            player.sayDialogue(
-                    String.format(bundle.getString("player.card.cardNumberPrompt"), i + 1)
-            );
-            for (int j = 0; j < 3; j++) {
-                student.sayPrompt();
-                System.out.printf("[%d] ", j + 1);
-                params[i][j] = scan.nextLine();
-            }
-        }
-        player.sayDialogue(String.format(
-                bundle.getString("player.card.confirmation"), student.getFirstName()));
-        return params;
-    }
-
     private void startChatSession() {
         printChatTimestamp(bundle.getString("ts.sessionStart"));
         club.sayDialogue(String.format(bundle.getString("clubWelcomeMessage"),
@@ -211,8 +165,8 @@ public final class ChatSession {
                 bundle.getString("player.universityEmphasis"),
                 Color.sfsuHighlight(university.getName().toUpperCase())
         ));
-        int amountOfCards = promptCardAmount();
-        new Card().printCards(promptCardParams(amountOfCards), student);
+
+        new Card(player, student, scan);
 
         student.sayPrompt();
         readStringIn();
