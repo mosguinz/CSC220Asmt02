@@ -212,6 +212,7 @@ public final class ChatSession {
     }
 
     private void runQuiz() {
+        new Quiz(club, student).runQuiz();
     }
 
     private void stopChatSession() {
