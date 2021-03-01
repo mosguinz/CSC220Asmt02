@@ -25,6 +25,7 @@ public final class ChatSession {
     private final Club club;
     private final University university;
     private final ResourceBundle bundle;
+    private Student student;
 
     public ChatSession(Club club, University university) {
         this.club = club;
@@ -88,10 +89,11 @@ public final class ChatSession {
         club.sayDialogue(String.format(bundle.getString("clubWelcomeMessage"),
                 club.getOfficialName().toUpperCase()));
         printLineSep();
+
         club.displayInfo();
         printLineSep();
         System.out.println();
-        getStudentInfo();
+        student = getStudentInfo();
     }
 
     private Student getStudentInfo() {
