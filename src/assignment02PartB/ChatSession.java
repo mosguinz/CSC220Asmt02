@@ -84,6 +84,16 @@ public final class ChatSession {
         return scan.nextLine().strip();
     }
 
+    /**
+     * Prints in a dialogue in the format "[Subject]: [message]".
+     *
+     * @param subject The name of the speaker.
+     * @param message The message to output.
+     */
+    public static void printDialogue(String subject, String message) {
+        System.out.printf("%s: %s", subject, message);
+    }
+
     private void startChatSession() {
         String ts = Messenger.getConfig().getTimer().getChatTimestamp();
         System.out.printf("%s - %s%n%n", ts, bundle.getString("ts.sessionStart"));
