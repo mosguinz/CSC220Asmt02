@@ -97,6 +97,12 @@ public final class ChatSession {
     private void startChatSession() {
         String ts = Messenger.getConfig().getTimer().getChatTimestamp();
         System.out.printf("%s - %s%n%n", ts, bundle.getString("ts.sessionStart"));
+        printDialogue(
+                club.getShortName(), String.format(
+                        bundle.getString("clubWelcomeMessage"),
+                        club.getOfficialName().toUpperCase()
+                )
+        );
     }
 
     private void connectChatters() {
