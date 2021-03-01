@@ -24,12 +24,12 @@ public final class ChatSession {
     private static final Scanner scan = new Scanner(System.in);
     private final Club club;
     private final University university;
-    private final ResourceBundle langBundle;
+    private final ResourceBundle bundle;
 
     public ChatSession(Club club, University university) {
         this.club = club;
         this.university = university;
-        this.langBundle = Messenger.getConfig().getLang().getBundle("ChatSession");
+        this.bundle = Messenger.getConfig().getLang().getBundle("ChatSession");
     }
 
     /**
@@ -68,8 +68,8 @@ public final class ChatSession {
      */
     public static void displayAppBanner() {
         System.out.println(LINE_SEP);
-        System.out.println("-".repeat(19) + " " +
-                Language.getOfficialAppName() + " " + "-".repeat(26));
+        System.out.println("-".repeat(19) + " "
+                + Language.getOfficialAppName() + " " + "-".repeat(26));
         System.out.println(LINE_SEP);
     }
 
@@ -86,7 +86,7 @@ public final class ChatSession {
 
     private void startChatSession() {
         String ts = Messenger.getConfig().getTimer().getChatTimestamp();
-        System.out.printf("%s - Chat session started.%n%n", ts);
+        System.out.printf("%s - %s%n%n", ts, bundle.getString("ts.sessionStart"));
     }
 
     private void connectChatters() {
