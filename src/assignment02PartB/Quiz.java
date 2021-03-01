@@ -56,4 +56,42 @@ public class Quiz {
             }
         }
     }
+
+    /**
+     * Prompts the question to the user and read in the response.
+     *
+     * @param qa The {@link QuestionAnswer} object to use.
+     * @return The user's answer.
+     */
+    private String promptQuestion(QuestionAnswer qa) {
+        club.sayDialogue(qa.getQuestion());
+        student.sayPrompt();
+        return ChatSession.readStringIn();
+    }
+
+    /**
+     * Run the quiz.
+     */
+    public void runQuiz() {
+        int misses = 0;
+        club.sayDialogue(String.format(bundle.getString("start.prompt"),
+                club.getShortName().toUpperCase(), MISSES_ALLOWED));
+
+        for (QuestionAnswer qa : questionAnswer) {
+            if (qa.validateAnswer(promptQuestion(qa))) {
+                club.sayDialogue(bundle.getString("response.correct"));
+            } else {
+                club.sayDialogue(bundle.getString("response.incorrect"));
+                misses++;
+            }
+        }
+
+        if (misses > MISSES_ALLOWED) {
+            System.out.println(bundle.getString("finish.failure"));
+        } else {
+            System.out.println(String.format(bundle.getString("finish.success"),
+                    club.getShortName().toUpperCase())
+            );
+        }
+    }
 }
