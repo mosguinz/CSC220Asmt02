@@ -13,4 +13,13 @@ package assignment02PartB;
 // Please make sure to read the provided "_ListOf-PleaseDoNotChange.txt"
 
 class QuestionAnswer {
+
+    private final String question;
+    private final String answer;
+
+    public QuestionAnswer(String question, String answer) {
+        this.question = question;
+        this.answer = answer;
+    }
+
 }
