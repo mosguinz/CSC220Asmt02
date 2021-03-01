@@ -22,4 +22,15 @@ class QuestionAnswer {
         this.answer = answer;
     }
 
+    /**
+     * Validate the given {@code answer}. Validation is strips all trailing and leading whitespaces
+     * and is case-insensitive.
+     *
+     * @param answer The answer to validate.
+     * @return Whether the answer is correct.
+     */
+    public boolean validateAnswer(String answer) {
+        return answer.strip().equalsIgnoreCase(this.answer);
+    }
+
 }
