@@ -141,6 +141,10 @@ public final class Config {
         return university;
     }
 
+    public String getReceiptFilePath() {
+        return receiptFilePath;
+    }
+
     private void displayInfo() {
         String[] labels = {
                 langBundle.getString("language.label"),
