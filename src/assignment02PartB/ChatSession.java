@@ -40,6 +40,10 @@ public final class ChatSession {
         this.bundle = Messenger.getConfig().getLang().getBundle("ChatSession");
     }
 
+    public static String getLineSep() {
+        return LINE_SEP;
+    }
+
     /**
      * Prints a line.
      */
