@@ -97,11 +97,12 @@ public class Timer {
         return df.format(new Date());
     }
 
-    // @formatter:off
-    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    /**
+     * @deprecated Unused convenience method. Defined to allow compilation without editing {@link
+     *         Messenger}.
+     */
     @Deprecated
     public String getNowTime(String s) {
         return null;
     }
-    // @formatter:on
 }
