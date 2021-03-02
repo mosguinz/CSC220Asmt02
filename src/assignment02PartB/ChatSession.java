@@ -66,7 +66,7 @@ public final class ChatSession {
      */
     public static void printTable(String[] fields, String[] values) {
         for (int i = 0; i < fields.length; i++) {
-            System.out.printf("%-26s%s%n", fields[i] + ":", values[i]);
+            System.out.printf("%-25s %s%n", fields[i] + ":", values[i]);
         }
     }
 
