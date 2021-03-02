@@ -51,22 +51,32 @@ public class Card {
                 System.out.printf(bundle.getString("error.invalidInputTypeCardAmount"),
                         MAX_RETRIES - i);
             } finally {
-                scan.nextLine();
+                scan.nextLine();  // reset cursor
             }
         }
         throw new InputMismatchException(String.format("Exceeded %d retries.", MAX_RETRIES));
     }
 
+    /**
+     * Prompts the user for the card's recipient, style, and message to recipient.
+     *
+     * @param amountOfCards The amount of cards to order. The prompts will repeat for this amount.
+     * @return A 2D array representing the cards to order and its fields.
+     */
     private String[][] promptCardParams(int amountOfCards) {
         String[][] params = new String[amountOfCards][3];
+
+        // Instructions
         player.sayDialogue(bundle.getString("player.parameterPrompt"));
         System.out.printf("%4s[1] %s%n", "", bundle.getString("player.parameterPrompt.1"));
         System.out.printf("%4s[2] %s%n", "", bundle.getString("player.parameterPrompt.2"));
         System.out.printf("%4s[3] %s%n", "", bundle.getString("player.parameterPrompt.3"));
+
+        // Prompt for each cards.
         for (int i = 0; i < amountOfCards; i++) {
-            player.sayDialogue(
-                    String.format(bundle.getString("player.cardNumberPrompt"), i + 1)
-            );
+            player.sayDialogue(String.format(bundle.getString("player.cardNumberPrompt"), i + 1));
+
+            // Prompt for each fields.
             for (int j = 0; j < 3; j++) {
                 student.sayPrompt();
                 System.out.printf("[%d] ", j + 1);
@@ -78,6 +88,11 @@ public class Card {
         return params;
     }
 
+    /**
+     * Prints the card(s) to the console.
+     *
+     * @param cards A 2D array representing the cards to print.
+     */
     private void printCards(String[][] cards) {
         SFGiantsCardGenerator generator = new SFGiantsCardGenerator();
         final String firstName = student.getFirstName();
