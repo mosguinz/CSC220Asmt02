@@ -31,26 +31,36 @@ public final class Config {
     private static final String defaultUniversityName = "San Francisco State University"; // Default
     private static final University defaultUniversity = new University();
     // @formatter:on
-
-    private final ResourceBundle langBundle;
-    private final Language lang;
+    private final String logDirectoryPath;
+    private final Directory logDirectory;
+    private final String clubName;
+    private final String universityName;
+    private Language lang;
+    private ResourceBundle langBundle;
     private Timer timer;
     private Color color;
-    private String logDirectoryPath;
-    private Directory logDirectory;
     private String stdOutFilePath;
     private String stdErrFilePath;
     private StdOutStdErrTee stdOutStdErrTee;
-    private String clubName;
     private Club club;
-    private String universityName;
     private University university;
 
     public Config() {
+        lang = defaultLang;
+        timer = defaultTimer;
+        color = defaultColor;
+        logDirectoryPath = defaultLogDirectoryPath;
+        logDirectory = defaultLogDirectory;
+        stdOutFilePath = defaultStdOutFilePath;
+        stdErrFilePath = defaultStdErrFilePath;
+        stdOutStdErrTee = defaultStdOutStdErrTee;
+        clubName = defaultClubName;
+        club = defaultClub;
+        universityName = defaultUniversityName;
+        university = defaultUniversity;
+
         ChatSession.displayAppBanner();
-        lang = setLangPref();
-        langBundle = lang.getBundle("Config");
-        setPreferences();
+        System.out.println();
     }
 
     public static Language getDefaultLang() {
@@ -177,29 +187,33 @@ public final class Config {
 
     /**
      * Sets the language preference by prompting user. This is run prior to setting other
-     * preferences (e.g., time zone) and is invoked from the sole constructor.
+     * preferences (e.g., time zone).
      * <p>
-     * This process has priority and is separate from the rest of {@link #setPreferences()} due to
-     * other parts' reliance on localized strings.
+     * This method must be run prior to other settings in order to fetch the necessary localized
+     * strings.
      *
      * @return The {@link Language} to use for this instance.
      * @see #setPreferences()
      */
     private Language setLangPref() {
         System.out.print("Language: ");
-        return new Language(ChatSession.readStringIn());
+        Language lang = new Language(ChatSession.readStringIn());
+        langBundle = lang.getBundle("Config");
+        return lang;
     }
 
     /**
      * Set the program's preferences.
      * <p>
      * Default settings and program's data are loaded from the resource bundle(s). Preferences set
-     * by the user are prompted via stdin (just time zone for this implementation). Note that
-     * language is configured separately and is invoked immediately prior to this method.
+     * by the user are prompted via stdin (language and time zone for this implementation). Note
+     * that the language must be configured first in order to determine the resource bundles needed
+     * for localized texts.
      *
      * @see #setLangPref()
      */
     public void setPreferences() {
+        lang = setLangPref();
         System.out.printf("%s: ", langBundle.getString("timeZone.label"));
         timer = new Timer(ChatSession.readStringIn());
         color = defaultColor;
