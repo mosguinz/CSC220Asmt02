@@ -183,16 +183,15 @@ public final class Config {
     }
 
     /**
-     * Sets the language preference by prompting user. This is run prior to setting other
-     * preferences (e.g., time zone).
+     * Prompt the user for language preference.
      * <p>
-     * This method must be run prior to other settings in order to fetch the necessary localized
-     * strings.
+     * This method has the highest priority after logger configuration ({@link #setLogPref()}) in
+     * order to configure the necessary resource bundles for localized strings.
      *
      * @return The {@link Language} to use for this instance.
      * @see #setPreferences()
      */
-    private Language setLangPref() {
+    private Language promptLangPref() {
         System.out.print("Language: ");
         Language lang = new Language(ChatSession.readStringIn());
         langBundle = lang.getBundle("Config");
@@ -200,23 +199,37 @@ public final class Config {
     }
 
     /**
+     * Prompt the user for time zone preference.
+     *
+     * @return The {@link Timer} object to use for this instance.
+     * @see #setPreferences()
+     */
+    private Timer promptTimerPref() {
+        System.out.printf("%s: ", langBundle.getString("timeZone.label"));
+        return new Timer(ChatSession.readStringIn());
+    }
+
+    /**
      * Set the program's preferences.
      * <p>
      * Default settings and program's data are loaded from the resource bundle(s). Preferences set
      * by the user are prompted via stdin (language and time zone for this implementation). Note
-     * that the language must be configured first in order to determine the resource bundles needed
-     * for localized texts.
+     * that the <b>language must be configured first</b> in order to determine the resource bundles
+     * needed for localized texts.
      *
-     * @see #setLangPref()
+     * @see #promptLangPref()
      */
     public void setPreferences() {
-        lang = setLangPref();
-        System.out.printf("%s: ", langBundle.getString("timeZone.label"));
-        timer = new Timer(ChatSession.readStringIn());
+        // Set by user prompts
+        lang = promptLangPref();
+        timer = promptTimerPref();
+
+        // Set by config file
         color = new Color(configBundle.getString("color"));
         receiptFilePath = configBundle.getString("receiptFilePath");
         club = new Club();
         university = new University();
+
         this.displayInfo();
     }
 }
