@@ -17,6 +17,11 @@ import java.util.Scanner;
 public final class ChatSession {
 
     /**
+     * Delay in milliseconds for chat. Set to zero for quick testing.
+     */
+    private static final int CHAT_DELAY_MS = 1000;
+
+    /**
      * The width of the line separator as specified in the sample output.
      */
     private static final int LINE_SEP_WIDTH = 66;
@@ -101,7 +106,7 @@ public final class ChatSession {
         for (int i = 0; i < 5; i++) {
             try {
                 System.out.print(". ");
-                Thread.sleep(1000);
+                Thread.sleep(CHAT_DELAY_MS);
             } catch (InterruptedException e) {
                 System.err.println(e);
             }
@@ -114,7 +119,7 @@ public final class ChatSession {
      */
     private static void fakeChatDelay() {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(CHAT_DELAY_MS);
         } catch (InterruptedException e) {
             System.err.println(e);
         }
