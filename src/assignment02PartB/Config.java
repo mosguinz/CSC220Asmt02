@@ -205,6 +205,7 @@ public final class Config {
         color = defaultColor;
         stdOutFilePath = defaultStdOutFilePath;
         stdErrFilePath = defaultStdErrFilePath;
+        stdOutStdErrTee = defaultStdOutStdErrTee;
         //receipt
         club = new Club();
         university = new University();

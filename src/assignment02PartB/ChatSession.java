@@ -120,11 +120,6 @@ public final class ChatSession {
         }
     }
 
-    // lazy debug
-    public static void main(String[] args) {
-        new ChatSession(new Club(), new University()).runChatSession();
-    }
-
     private void startChatSession() {
         printChatTimestamp(bundle.getString("ts.sessionStart"));
         club.sayDialogue(String.format(bundle.getString("clubWelcomeMessage"),

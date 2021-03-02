@@ -25,6 +25,8 @@ public class StdOutStdErrTee extends OutputStream {
     public StdOutStdErrTee(String sOutPath, String sErrPath) {
         createStreams(sOutPath, sErrPath);
         OUTPUT_STREAMS = createStreams(sOutPath, sErrPath);
+        this.sOutPath = sOutPath;
+        this.sErrPath = sErrPath;
     }
 
     /**
