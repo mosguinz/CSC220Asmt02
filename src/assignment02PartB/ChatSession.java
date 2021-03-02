@@ -122,6 +122,9 @@ public final class ChatSession {
 
     private void startChatSession() {
         printChatTimestamp(bundle.getString("ts.sessionStart"));
+        fakeChatDelay();
+        System.out.println();
+
         club.sayDialogue(String.format(bundle.getString("clubWelcomeMessage"),
                 club.getOfficialName().toUpperCase()));
         printLineSep();
@@ -160,12 +163,20 @@ public final class ChatSession {
                 bundle.getString("player.universityEmphasis"),
                 Color.sfsuHighlight(university.getName().toUpperCase())
         ));
+        fakeChatDelay();
+        student.sayPrompt();
+        readStringIn();
+        fakeChatDelay();
+        player.sayDialogue(String.format(bundle.getString("player.likewiseResponse"), firstName));
+        fakeChatDelay();
 
         new Card(player, student, scan).runCardWizard();
 
         student.sayPrompt();
         readStringIn();
+        fakeChatDelay();
         player.sayDialogue(String.format(bundle.getString("player.card.thankYou"), firstName));
+        fakeChatDelay();
         System.out.println();
     }
 

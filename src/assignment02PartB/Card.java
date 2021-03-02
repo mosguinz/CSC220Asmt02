@@ -44,7 +44,8 @@ public class Card {
     private int promptCardAmount() throws InputMismatchException {
         for (int i = 0; i <= MAX_RETRIES; i++) {
             try {
-                player.sayPrompt(bundle.getString("player.amountPrompt"));
+                player.sayDialogue(bundle.getString("player.amountPrompt"));
+                student.sayPrompt();
                 return scan.nextInt();
             } catch (InputMismatchException e) {
                 System.err.println(e);
