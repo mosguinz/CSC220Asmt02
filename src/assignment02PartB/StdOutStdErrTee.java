@@ -94,7 +94,8 @@ public class StdOutStdErrTee extends OutputStream {
     }
 
     /**
-     * Does not do anything. Required to compile project.
+     * @deprecated Unused convenience method. Defined to allow compilation without editing {@link
+     *         Messenger}.
      */
     @Deprecated
     public static void stopLog() {
