@@ -72,13 +72,14 @@ public final class ChatSession {
     }
 
     /**
-     * Print the app banner as specified in the sample output.
+     * Returns the app banner as specified in the sample output.
      */
-    public static void displayAppBanner() {
-        System.out.println(LINE_SEP);
-        System.out.println("-".repeat(19) + " "
-                + Language.getOfficialAppName() + " " + "-".repeat(26));
-        System.out.println(LINE_SEP);
+    public static String getAppBanner() {
+        return (LINE_SEP
+                + "\n" + "-".repeat(19) + " "
+                + Language.getOfficialAppName() + " " + "-".repeat(26)
+                + "\n" + LINE_SEP
+        );
     }
 
     /**

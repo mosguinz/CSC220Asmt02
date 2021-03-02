@@ -49,7 +49,7 @@ public final class Config {
 
     public Config() {
         setLogPref();
-        ChatSession.displayAppBanner();
+        System.out.println(ChatSession.getAppBanner().toUpperCase());
         System.out.println();
     }
 
