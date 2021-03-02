@@ -15,8 +15,7 @@ import java.util.ResourceBundle;
 
 public final class Config {
 
-    //
-    // Static Data Fields
+    // Static data fields from starter code
     // @formatter:off
     private static final Language defaultLang = new Language("English"); // Default
     private static final Timer defaultTimer = new Timer("Pacific Standard Time"); // Default
@@ -31,34 +30,25 @@ public final class Config {
     private static final String defaultUniversityName = "San Francisco State University"; // Default
     private static final University defaultUniversity = new University();
     // @formatter:on
-    private final String logDirectoryPath;
-    private final Directory logDirectory;
-    private final String clubName;
-    private final String universityName;
+
+    private static final ResourceBundle configBundle = ResourceBundle
+            .getBundle("assignment02PartB.resources.AppConfig");
+
+    private String logDirectoryPath;
+    private Directory logDirectory;
+    private String stdOutFilePath;
+    private String stdErrFilePath;
+    private StdOutStdErrTee stdOutStdErrTee;
+    private String receiptFilePath;
     private Language lang;
     private ResourceBundle langBundle;
     private Timer timer;
     private Color color;
-    private String stdOutFilePath;
-    private String stdErrFilePath;
-    private StdOutStdErrTee stdOutStdErrTee;
     private Club club;
     private University university;
 
     public Config() {
-        lang = defaultLang;
-        timer = defaultTimer;
-        color = defaultColor;
-        logDirectoryPath = defaultLogDirectoryPath;
-        logDirectory = defaultLogDirectory;
-        stdOutFilePath = defaultStdOutFilePath;
-        stdErrFilePath = defaultStdErrFilePath;
-        stdOutStdErrTee = defaultStdOutStdErrTee;
-        clubName = defaultClubName;
-        club = defaultClub;
-        universityName = defaultUniversityName;
-        university = defaultUniversity;
-
+        setLogPref();
         ChatSession.displayAppBanner();
         System.out.println();
     }
@@ -143,16 +133,8 @@ public final class Config {
         return stdOutStdErrTee;
     }
 
-    public String getClubName() {
-        return clubName;
-    }
-
     public Club getClub() {
         return club;
-    }
-
-    public String getUniversityName() {
-        return universityName;
     }
 
     public University getUniversity() {
@@ -186,6 +168,21 @@ public final class Config {
     }
 
     /**
+     * Sets the preferences for log file locations.
+     * <p>
+     * Log configuration has the highest priority and is invoked in the sole constructor of the
+     * {@link Config} class. This method is invoked prior to configuration of all other preferences
+     * as it is required for the logger to start before all other processes.
+     */
+    private void setLogPref() {
+        logDirectoryPath = configBundle.getString("logDirectoryPath");
+        logDirectory = new Directory(logDirectoryPath);
+        stdOutFilePath = configBundle.getString("stdOutFilePath");
+        stdErrFilePath = configBundle.getString("stdErrFilePath");
+        stdOutStdErrTee = new StdOutStdErrTee(stdOutFilePath, stdErrFilePath);
+    }
+
+    /**
      * Sets the language preference by prompting user. This is run prior to setting other
      * preferences (e.g., time zone).
      * <p>
@@ -216,11 +213,8 @@ public final class Config {
         lang = setLangPref();
         System.out.printf("%s: ", langBundle.getString("timeZone.label"));
         timer = new Timer(ChatSession.readStringIn());
-        color = defaultColor;
-        stdOutFilePath = defaultStdOutFilePath;
-        stdErrFilePath = defaultStdErrFilePath;
-        stdOutStdErrTee = defaultStdOutStdErrTee;
-        //receipt
+        color = new Color(configBundle.getString("color"));
+        receiptFilePath = configBundle.getString("receiptFilePath");
         club = new Club();
         university = new University();
         this.displayInfo();
