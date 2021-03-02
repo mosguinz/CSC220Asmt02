@@ -95,7 +95,7 @@ public final class ChatSession {
      *
      * @param msg The message to add after the timestamp.
      */
-    private static String generateTimestamp(String msg) {
+    public static String generateTimestamp(String msg) {
         return String.format("%s - %s", Messenger.getConfig().getTimer().getChatTimestamp(), msg);
     }
 
