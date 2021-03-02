@@ -27,6 +27,7 @@ public final class ChatSession {
     private static final int LINE_SEP_WIDTH = 66;
     private static final String LINE_SEP = "-".repeat(LINE_SEP_WIDTH);
     private static final Scanner scan = new Scanner(System.in);
+
     private final Club club;
     private final University university;
     private final ResourceBundle bundle;
@@ -94,9 +95,8 @@ public final class ChatSession {
      *
      * @param msg The message to add after the timestamp.
      */
-    private static void printChatTimestamp(String msg) {
-        System.out.println(String.format("%s - %s",
-                Messenger.getConfig().getTimer().getChatTimestamp(), msg));
+    private static String generateTimestamp(String msg) {
+        return String.format("%s - %s", Messenger.getConfig().getTimer().getChatTimestamp(), msg);
     }
 
     /**
@@ -126,7 +126,7 @@ public final class ChatSession {
     }
 
     private void startChatSession() {
-        printChatTimestamp(bundle.getString("ts.sessionStart"));
+        System.out.println(generateTimestamp(bundle.getString("ts.sessionStart")));
         fakeChatDelay();
         System.out.println();
 
@@ -190,7 +190,7 @@ public final class ChatSession {
     }
 
     private void stopChatSession() {
-        printChatTimestamp(bundle.getString("ts.sessionEnd"));
+        System.out.println(generateTimestamp(bundle.getString("ts.sessionEnd")));
     }
 
     public void runChatSession() {
