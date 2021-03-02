@@ -162,7 +162,7 @@ public final class Config {
                 color.getEncoding(),
                 stdOutFilePath,
                 stdErrFilePath,
-                "",
+                receiptFilePath,
                 langBundle.getString("defaultClub.value"),
                 langBundle.getString("defaultUniversity.value")
         };

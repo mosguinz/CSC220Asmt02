@@ -19,7 +19,7 @@ public final class ChatSession {
     /**
      * Delay in milliseconds for chat. Set to zero for quick testing.
      */
-    private static final int CHAT_DELAY_MS = 1000;
+    private static final int CHAT_DELAY_MS = 0;
 
     /**
      * The width of the line separator as specified in the sample output.
@@ -33,6 +33,7 @@ public final class ChatSession {
     private final ResourceBundle bundle;
     private Student student;
     private Player player;
+    private Receipt receipt;
 
     public ChatSession(Club club, University university) {
         this.club = club;
@@ -143,6 +144,7 @@ public final class ChatSession {
         printLineSep();
         System.out.println();
         student = getStudentInfo();
+        ;
 
         club.sayDialogue(bundle.getString("preChat.connecting"));
         fakeLoading();
@@ -161,6 +163,7 @@ public final class ChatSession {
 
     private void connectChatters() {
         player = new Player(club);
+        receipt = new Receipt(student, player);
         String firstName = student.getFirstName();
         printLineSep();
         player.displayInfo();
@@ -180,7 +183,9 @@ public final class ChatSession {
         player.sayDialogue(String.format(bundle.getString("player.likewiseResponse"), firstName));
         fakeChatDelay();
 
-        new Card(player, student, scan).runCardWizard();
+        Card card = new Card(player, student, scan);
+        card.runCardWizard();
+        receipt.setCard(card);
 
         student.sayPrompt();
         readStringIn();
@@ -191,20 +196,20 @@ public final class ChatSession {
     }
 
     private void runQuiz() {
-        new Quiz(club, student).runQuiz();
+        Quiz quiz = new Quiz(club, student);
+        quiz.runQuiz();
+        receipt.setQuiz(quiz);
     }
 
     private void stopChatSession() {
         System.out.println(generateTimestamp(bundle.getString("ts.sessionEnd")));
+        receipt.writeReceipt();
     }
 
     public void runChatSession() {
         this.startChatSession();
         this.connectChatters();
-        // Transaction
-
         this.runQuiz();
-        //
         this.stopChatSession();
     }
 }
