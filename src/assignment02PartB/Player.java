@@ -36,6 +36,10 @@ public class Player extends Person {
         mlbDebut = bundle.getString("mlbDebut");
     }
 
+    public Club getClub() {
+        return club;
+    }
+
     public void displayInfo() {
         final ResourceBundle bundle = Messenger.getConfig().getLang().getBundle("Player");
         String[] fields = {
