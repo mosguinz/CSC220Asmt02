@@ -24,12 +24,17 @@ public class Quiz {
     private final Student student;
     private final ResourceBundle bundle;
     private final ArrayList<QuestionAnswer> questionAnswer;
+    private boolean passed;
 
     public Quiz(Club club, Student student) {
         bundle = Messenger.getConfig().getLang().getBundle("Quiz");
         this.club = club;
         this.student = student;
         this.questionAnswer = loadQuestionAnswers();
+    }
+
+    public boolean isPassed() {
+        return passed;
     }
 
     /**
@@ -88,10 +93,12 @@ public class Quiz {
 
         if (misses > MISSES_ALLOWED) {
             System.out.println(bundle.getString("finish.failure"));
+            passed = false;
         } else {
             System.out.println(String.format(bundle.getString("finish.success"),
                     club.getShortName().toUpperCase())
             );
+            passed = true;
         }
     }
 }
