@@ -117,4 +117,143 @@ public class Language {
         return ResourceBundle.getBundle(LANGUAGE_PATH + '.' + className, locale);
     }
 
+    // @formatter:off
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getGreetingIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getFrontOfficeIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getCardIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getChatSessionIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getClubIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getColorIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getCommonIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getDecorIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getConfigIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getGeneralManagerIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getManagerIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getMessengerIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getPersonIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getPlayerIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getPresidentIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getQuestionAnswerIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getQuizIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getReceiptIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getSfGiantsCardGeneratorIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getStdOutStdErrIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getStudentIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getTimerIdx(int i) {
+        return null;
+    }
+
+    /** Unused convenience method. Defined to allow compilation without editing {@link Messenger}. */
+    @Deprecated
+    public String getUniversityIdx(int i) {
+        return null;
+    }
+    // @formatter:on
 }
