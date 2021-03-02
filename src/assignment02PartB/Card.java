@@ -27,12 +27,17 @@ public class Card {
     private final Student student;
     private final Scanner scan;
     private final ResourceBundle bundle;
+    private String[][] cardParams;
 
     public Card(Player player, Student student, Scanner scan) {
         bundle = Messenger.getConfig().getLang().getBundle("Card");
         this.player = player;
         this.student = student;
         this.scan = scan;
+    }
+
+    public String[][] getCardParams() {
+        return cardParams;
     }
 
     /**
@@ -91,15 +96,13 @@ public class Card {
 
     /**
      * Prints the card(s) to the console.
-     *
-     * @param cards A 2D array representing the cards to print.
      */
-    private void printCards(String[][] cards) {
+    private void printCards() {
         SFGiantsCardGenerator generator = new SFGiantsCardGenerator();
         final String firstName = student.getFirstName();
         final String email = student.getEmail();
 
-        for (String[] card : cards) {
+        for (String[] card : cardParams) {
             final String recipient = card[0];
             final char artSymbol = card[1].charAt(0);
             final String message = card[2];
@@ -120,7 +123,7 @@ public class Card {
      */
     public void runCardWizard() {
         int cardAmount = promptCardAmount();
-        String[][] cardParams = promptCardParams(cardAmount);
-        printCards(cardParams);
+        cardParams = promptCardParams(cardAmount);
+        printCards();
     }
 }
