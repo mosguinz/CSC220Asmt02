@@ -21,12 +21,8 @@ import java.io.UncheckedIOException;
 public class StdOutStdErrTee extends OutputStream {
 
     private final OutputStream[] OUTPUT_STREAMS;
-    private String sOutPath;
-    private String sErrPath;
 
     public StdOutStdErrTee(String sOutPath, String sErrPath) {
-        this.sOutPath = sOutPath;
-        this.sErrPath = sErrPath;
         OUTPUT_STREAMS = createFileStreams(sOutPath, sErrPath);
     }
 
