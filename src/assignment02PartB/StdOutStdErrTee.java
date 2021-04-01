@@ -59,7 +59,7 @@ public class StdOutStdErrTee extends OutputStream {
             };
         } catch (FileNotFoundException e) {
             System.err.printf(
-                    "Could not create file output streams at '{}' and '{}'. Reason: {}\n"
+                    "Could not create file output streams at '%s' and '%s'. Reason: %s\n"
                             + "Creating file output streams at default location instead...",
                     sOutPath, sErrPath, e.getMessage()
             );
