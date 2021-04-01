@@ -27,7 +27,6 @@ public class StdOutStdErrTee extends OutputStream {
     public StdOutStdErrTee(String sOutPath, String sErrPath) {
         this.sOutPath = sOutPath;
         this.sErrPath = sErrPath;
-        createFileStreams(sOutPath, sErrPath);
         OUTPUT_STREAMS = createFileStreams(sOutPath, sErrPath);
     }
 
@@ -105,9 +104,10 @@ public class StdOutStdErrTee extends OutputStream {
      * Starts logging.
      */
     public void startLog() {
-        FileOutputStream[] streams = createFileStreams(sOutPath, sErrPath);
-        StdOutStdErrTee sOutTee = new StdOutStdErrTee(System.out, streams[0]);
-        StdOutStdErrTee sErrTee = new StdOutStdErrTee(System.err, streams[1]);
+        StdOutStdErrTee sOutTee = new StdOutStdErrTee(System.out,
+                (FileOutputStream) OUTPUT_STREAMS[0]);
+        StdOutStdErrTee sErrTee = new StdOutStdErrTee(System.err,
+                (FileOutputStream) OUTPUT_STREAMS[1]);
         PrintStream sOut = new PrintStream(sOutTee);
         PrintStream sErr = new PrintStream(sErrTee);
 
