@@ -31,7 +31,7 @@ public class Receipt {
     private Quiz quiz;
 
     public Receipt(Student student, Player player) {
-        startTimestamp = ChatSession.generateTimestamp("tx.start");
+        startTimestamp = ChatSession.generateTimestamp(bundle.getString("tx.start"));
         this.student = student;
         this.player = player;
     }
@@ -52,7 +52,7 @@ public class Receipt {
     }
 
     public void writeReceipt() {
-        endTimestamp = ChatSession.generateTimestamp("tx.end");
+        endTimestamp = ChatSession.generateTimestamp(bundle.getString("tx.end"));
         try {
             final PrintWriter write = new PrintWriter(getPathName(), StandardCharsets.UTF_8);
             write.println(ChatSession.getAppBanner());
@@ -63,10 +63,12 @@ public class Receipt {
             write.printf("%s, %s | %s%n", student.toString().toUpperCase(),
                     student.getEmail().toUpperCase(),
                     student.getUniversity().getName().toUpperCase());
-            write.println(ChatSession.getLineSep());
 
             // Card info
-            for (String[] c : card.getCardParams()) {
+            String[][] cards = card.getCardParams();
+            write.println(cards.length);
+            write.println(ChatSession.getLineSep());
+            for (String[] c : cards) {
                 write.println(c[0]);
                 write.println(c[1].charAt(0));
                 write.println(c[2]);
@@ -79,6 +81,9 @@ public class Receipt {
             } else {
                 write.println(bundle.getString("quiz.failure"));
             }
+
+            write.println();
+            write.println(endTimestamp);
             write.flush();
         } catch (IOException e) {
             System.err.println(e);
