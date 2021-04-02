@@ -9,3 +9,6 @@
 
 ## Note
 The main branch contains post-submission amendments that were not considered for grading. To browse the code in the state they were submitted, see the [original-submission](https://github.com/mosguinz-csc220-02/CSC220Asmt02/tree/original-submission) branch.
+
+## Questions or comments?
+If you have any questions or comments about the project, please add them in the [Discussions tab](https://github.com/mosguinz-csc220-02/CSC220Asmt02/discussions/new).
