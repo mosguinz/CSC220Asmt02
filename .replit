@@ -1,0 +1,2 @@
+language = "java10"
+run = "javac $(find ./src -name \"*.java\") && java -cp ./src assignment02PartB.Messenger"
