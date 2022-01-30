@@ -1,5 +1,7 @@
 # CSC 220 — Assignment 02
 
+[![Run on Repl.it](https://repl.it/badge/github/mosguinz-csc220-02/CSC220Asmt02)](https://repl.it/github/mosguinz-csc220-02/CSC220Asmt02)
+
 ## Quick links
 
 * [Assignment](https://github.com/mosguinz-csc220-02/CSC220Asmt02/blob/main/CSC220Asmt02/Assignment-02.pdf)
